@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://nxfve2m44s7n"]
+
+[ext_resource type="Script" path="res://Scripts/rigid_body_2d.gd" id="1_1y28n"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_j1stm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_deqb2"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+script = ExtResource("1_1y28n")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="RigidBody2D"]
+modulate = Color(0, 1, 1, 1)
+scale = Vector2(160, 160)
+mesh = SubResource("BoxMesh_j1stm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+scale = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_deqb2")
