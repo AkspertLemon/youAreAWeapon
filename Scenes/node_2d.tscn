@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://nxfve2m44s7n"]
+[gd_scene load_steps=5 format=3 uid="uid://nxfve2m44s7n"]
 
 [ext_resource type="Script" path="res://Scripts/rigid_body_2d.gd" id="1_1y28n"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_j1stm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_deqb2"]
+size = Vector2(20.25, 23.25)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4pgs6"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -21,3 +24,19 @@ mesh = SubResource("BoxMesh_j1stm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 scale = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_deqb2")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 325)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_4pgs6")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-577, -325)
+rotation = 1.57079
+shape = SubResource("WorldBoundaryShape2D_4pgs6")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -648)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_4pgs6")

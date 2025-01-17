@@ -12,8 +12,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var input = Vector2.ZERO
-	input.x = Input.get_axis("ui_left","ui_right")
-	input.y = Input.get_axis("ui_up",'ui_down')
+	input.x = Input.get_axis("move_a","move_d")
+	input.y = Input.get_axis("move_w",'move_s')
 	apply_central_force(input*delta*10000)
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
