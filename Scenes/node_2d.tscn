@@ -1,29 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://nxfve2m44s7n"]
+[gd_scene load_steps=6 format=3 uid="uid://nxfve2m44s7n"]
 
-[ext_resource type="Script" path="res://Scripts/rigid_body_2d.gd" id="1_1y28n"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_j1stm"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_deqb2"]
-size = Vector2(20.25, 23.25)
+[ext_resource type="Script" path="res://Scripts/LevelScript.gd" id="1_7ry5l"]
+[ext_resource type="PackedScene" uid="uid://1045u2o5op2" path="res://Player/bomb_player.tscn" id="1_dhv48"]
+[ext_resource type="Texture2D" uid="uid://c77ofpr6da8mh" path="res://icon.svg" id="3_j8mmp"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4pgs6"]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_f85v8"]
+radius = 60.9262
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_7ry5l")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-script = ExtResource("1_1y28n")
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="RigidBody2D"]
-modulate = Color(0, 1, 1, 1)
-scale = Vector2(160, 160)
-mesh = SubResource("BoxMesh_j1stm")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-scale = Vector2(8, 8)
-shape = SubResource("RectangleShape2D_deqb2")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(0, 325)
@@ -40,3 +29,29 @@ shape = SubResource("WorldBoundaryShape2D_4pgs6")
 position = Vector2(0, -648)
 rotation = 3.14159
 shape = SubResource("WorldBoundaryShape2D_4pgs6")
+
+[node name="BombPlayer" parent="." instance=ExtResource("1_dhv48")]
+position = Vector2(1, 1)
+
+[node name="BombTimer" type="Timer" parent="."]
+wait_time = 4.0
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(-285, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+texture = ExtResource("3_j8mmp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("CircleShape2D_f85v8")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(310, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
+texture = ExtResource("3_j8mmp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("CircleShape2D_f85v8")
+
+[connection signal="timeout" from="BombTimer" to="BombPlayer" method="_on_bomb_timer_timeout"]

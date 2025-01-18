@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjdwh8wwctkk7"]
+
+[ext_resource type="Texture2D" uid="uid://bdcjib8mr0drr" path="res://Assets/ProjectileTriangle.png" id="1_tndwv"]
+[ext_resource type="Script" path="res://Scripts/tri_projectile.gd" id="2_ytb40"]
+
+[node name="tri_projectile" type="CharacterBody2D"]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("2_ytb40")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tndwv")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-64, 63, 63, 64, -1, -64)
+disabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_life_timeout"]
