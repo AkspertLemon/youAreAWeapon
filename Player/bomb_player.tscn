@@ -1,27 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://1045u2o5op2"]
+[gd_scene load_steps=7 format=3 uid="uid://1045u2o5op2"]
 
 [ext_resource type="Script" path="res://Scripts/bombPlayer.gd" id="1_4ce6x"]
+[ext_resource type="Texture2D" uid="uid://f6a0pq8mgmpf" path="res://Player/Bomb_Player.png" id="2_hrqqg"]
+[ext_resource type="AudioStream" uid="uid://c5kk1hq4gvsfy" path="res://Assets/Sounds/Clock_ticking.mp3" id="3_e4krs"]
+[ext_resource type="AudioStream" uid="uid://c00pfvhx71n13" path="res://Assets/Sounds/bombImpact.mp3" id="4_quxxm"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_j1stm"]
+[sub_resource type="SphereMesh" id="SphereMesh_bl572"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_deqb2"]
-size = Vector2(20.25, 20.125)
+[sub_resource type="CircleShape2D" id="CircleShape2D_wrhp8"]
+radius = 10.668
 
 [node name="BombPlayer" type="RigidBody2D"]
 script = ExtResource("1_4ce6x")
+projec_num = 4
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 modulate = Color(0, 0.807843, 0.819608, 1)
-scale = Vector2(60, 60)
-mesh = SubResource("BoxMesh_j1stm")
+position = Vector2(-9.53674e-07, -0.5)
+scale = Vector2(63.0968, 62.327)
+mesh = SubResource("SphereMesh_bl572")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_hrqqg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
 scale = Vector2(3, 3)
-shape = SubResource("RectangleShape2D_deqb2")
+shape = SubResource("CircleShape2D_wrhp8")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 6.0
-autostart = true
+wait_time = 2.0
+one_shot = true
+
+[node name="Clock_ticker" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_e4krs")
+
+[node name="Explode_snd" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_quxxm")
 
 [connection signal="timeout" from="Timer" to="." method="explode_timeout"]

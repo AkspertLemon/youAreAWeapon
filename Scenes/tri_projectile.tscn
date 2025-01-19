@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/tri_projectile.gd" id="2_ytb40"]
 
 [node name="tri_projectile" type="CharacterBody2D"]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.18, 0.18)
 script = ExtResource("2_ytb40")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -14,18 +14,18 @@ script = ExtResource("1_7ry5l")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="WorldBoundaries" type="StaticBody2D" parent="."]
 position = Vector2(0, 325)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries"]
 shape = SubResource("WorldBoundaryShape2D_4pgs6")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBoundaries"]
 position = Vector2(-577, -325)
 rotation = 1.57079
 shape = SubResource("WorldBoundaryShape2D_4pgs6")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldBoundaries"]
 position = Vector2(0, -648)
 rotation = 3.14159
 shape = SubResource("WorldBoundaryShape2D_4pgs6")
@@ -36,22 +36,22 @@ position = Vector2(1, 1)
 [node name="BombTimer" type="Timer" parent="."]
 wait_time = 4.0
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(-285, 0)
+[node name="Godot1" type="StaticBody2D" parent="."]
+position = Vector2(-277, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+[node name="Sprite2D" type="Sprite2D" parent="Godot1"]
 texture = ExtResource("3_j8mmp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Godot1"]
 shape = SubResource("CircleShape2D_f85v8")
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+[node name="Godot2" type="StaticBody2D" parent="."]
 position = Vector2(310, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
+[node name="Sprite2D" type="Sprite2D" parent="Godot2"]
 texture = ExtResource("3_j8mmp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Godot2"]
 shape = SubResource("CircleShape2D_f85v8")
 
 [connection signal="timeout" from="BombTimer" to="BombPlayer" method="_on_bomb_timer_timeout"]
