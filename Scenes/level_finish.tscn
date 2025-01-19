@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bvwuk2wv4ig65"]
+
+[ext_resource type="Script" path="res://Scripts/level_finish.gd" id="1_ajm07"]
+[ext_resource type="Texture2D" uid="uid://b1u41ypofp08u" path="res://Assets/BlackHole.png" id="2_8ho54"]
+
+[sub_resource type="Curve" id="Curve_2s47o"]
+_data = [Vector2(0, 1), 0.0, -0.7, 0, 0, Vector2(1, 0.25), -0.7, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_017ii"]
+offsets = PackedFloat32Array(0, 0.866667)
+colors = PackedColorArray(0.629817, 0.00299007, 0.903464, 1, 0, 0, 0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tx865"]
+radius = 55.0
+
+[node name="Level_Finish" type="Area2D"]
+script = ExtResource("1_ajm07")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_8ho54")
+
+[node name="OrbitalParticles" type="CPUParticles2D" parent="."]
+amount = 40
+emission_shape = 2
+emission_sphere_radius = 100.0
+gravity = Vector2(0, 0)
+angular_velocity_min = -50.0
+angular_velocity_max = 50.0
+orbit_velocity_min = 0.5
+orbit_velocity_max = 0.7
+orbit_velocity_curve = SubResource("Curve_2s47o")
+radial_accel_min = -150.0
+radial_accel_max = -150.0
+scale_amount_min = 3.0
+scale_amount_max = 6.0
+color_ramp = SubResource("Gradient_017ii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.7, 0.7)
+shape = SubResource("CircleShape2D_tx865")
