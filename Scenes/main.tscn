@@ -1,27 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://nxfve2m44s7n"]
+[gd_scene load_steps=4 format=3 uid="uid://nxfve2m44s7n"]
 
 [ext_resource type="Script" path="res://Scripts/LevelScript.gd" id="1_7ry5l"]
 [ext_resource type="PackedScene" uid="uid://1045u2o5op2" path="res://Player/bomb_player.tscn" id="1_dhv48"]
-[ext_resource type="Texture2D" uid="uid://c77ofpr6da8mh" path="res://icon.svg" id="3_j8mmp"]
 [ext_resource type="PackedScene" uid="uid://bvwuk2wv4ig65" path="res://Scenes/level_finish.tscn" id="4_0hs4d"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_7ry5l")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(7, 137)
-texture = ExtResource("3_j8mmp")
-
 [node name="BombTimer" type="Timer" parent="."]
 wait_time = 4.0
 
 [node name="Level_Finish" parent="." instance=ExtResource("4_0hs4d")]
-position = Vector2(-430, -192)
+position = Vector2(312, 178)
 
 [node name="BombPlayer" parent="." instance=ExtResource("1_dhv48")]
 position = Vector2(1, 1)
-
-[node name="Camera2D" type="Camera2D" parent="BombPlayer"]
-position = Vector2(-1, -1)
 
 [connection signal="timeout" from="BombTimer" to="BombPlayer" method="_on_bomb_timer_timeout"]

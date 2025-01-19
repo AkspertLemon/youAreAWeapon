@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@onready var main = get_tree().get_root().get_node("main")
+@onready var main = get_tree().get_root().get_node("level_1")
 @onready var projectile = load("res://Scenes/tri_projectile.tscn")
 var size = 3
 
@@ -24,9 +24,8 @@ func _process(delta: float) -> void:
 	
 	
 func _on_bomb_timer_timeout() -> void:
-	var tween := create_tween().bind_node(self).set_trans(Tween.TRANS_QUART).set_parallel(false)
-	tween.tween_property($MeshInstance2D, "modulate", Color.CRIMSON, 2)
-	tween.tween_property($MeshInstance2D, "modulate", Color.DARK_TURQUOISE, 0)
+	var tween := create_tween().bind_node(self).set_trans(Tween.TRANS_QUART)
+	tween.tween_property($MeshInstance2D, "modulate", Color.CRIMSON, 1.8)
 	$Timer.start()
 	
 	
@@ -42,6 +41,7 @@ func explode() -> void:
 		instance.spawnRot = rotation+((n-1)*rot_offset)
 		instance.zdex = z_index-1
 		main.add_child.call_deferred(instance)
+	$MeshInstance2D.modulate=Color.DARK_TURQUOISE
 
 
 func explode_timeout() -> void:

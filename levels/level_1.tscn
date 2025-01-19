@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://i8jl0htl0sbk"]
+
+[ext_resource type="PackedScene" uid="uid://1045u2o5op2" path="res://Player/bomb_player.tscn" id="1_0u1fr"]
+[ext_resource type="PackedScene" uid="uid://bvwuk2wv4ig65" path="res://Scenes/level_finish.tscn" id="2_3pdo8"]
+
+[node name="level_1" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(268, 274)
+
+[node name="BombPlayer" parent="." instance=ExtResource("1_0u1fr")]
+top_level = true
+position = Vector2(194, 162)
+
+[node name="Level_Finish" parent="." instance=ExtResource("2_3pdo8")]
+position = Vector2(-60, 106)

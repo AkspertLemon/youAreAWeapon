@@ -23,6 +23,7 @@ scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_8ho54")
 
 [node name="OrbitalParticles" type="CPUParticles2D" parent="."]
+emitting = false
 amount = 40
 emission_shape = 2
 emission_sphere_radius = 100.0
@@ -41,3 +42,5 @@ color_ramp = SubResource("Gradient_017ii")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.7, 0.7)
 shape = SubResource("CircleShape2D_tx865")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
