@@ -6,6 +6,7 @@ var size = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$bombTimer.start()
 	$MeshInstance2D.modulate = Color.DARK_TURQUOISE
 	for n in range(2):
 		$CollisionShape2D.scale[n] = size
@@ -23,17 +24,20 @@ func _process(delta: float) -> void:
 	if  not $Clock_ticker.playing && not $Explode_snd.playing:$Clock_ticker.play(0)
 	
 	
+@export var projec_num = 4
+var rot_offset = 2*PI/projec_num
 func _on_bomb_timer_timeout() -> void:
-	var tween := create_tween().bind_node(self).set_trans(Tween.TRANS_QUART)
-	tween.tween_property($MeshInstance2D, "modulate", Color.CRIMSON, 1.8)
-	$Timer.start()
-	
-	
-@export var projec_num = 100
+	var tween := create_tween().bind_node(self).set_trans(Tween.TRANS_LINEAR)
+	tween.tween_property($MeshInstance2D, "modulate", Color.CRIMSON, $graceTimer.wait_time*0.9)
+	$graceTimer.start()
+	for n in range(projec_num):
+		var Wlight = load("res://Scenes/warning_light.tscn").instantiate()
+		Wlight.spawnRot = rotation+((n-1)*rot_offset)
+		Wlight.spawnPos = global_position
+		Wlight.timer = $graceTimer.wait_time
 func explode() -> void:
 	$Clock_ticker.stop()
 	$Explode_snd.play(0)
-	var rot_offset = 2*PI/projec_num
 	for n in range(projec_num):
 		var instance = projectile.instantiate()
 		instance.dir = rotation+((n-1)*rot_offset)

@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqyialgd2eca8"]
+
+[ext_resource type="Script" path="res://Scripts/stabillizer.gd" id="1_wcqjw"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_mc8ej"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xnikd"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_fxyan"]
+
+[sub_resource type="Gradient" id="Gradient_vnj2y"]
+offsets = PackedFloat32Array(0.753333, 1)
+colors = PackedColorArray(0.176471, 0.639216, 0, 1, 1, 1, 1, 0)
+
+[node name="Stabillizer" type="Area2D"]
+z_index = 1
+script = ExtResource("1_wcqjw")
+
+[node name="Feild" type="MeshInstance2D" parent="."]
+self_modulate = Color(0.514102, 0.847655, 0.598568, 0.152941)
+scale = Vector2(240, 240)
+mesh = SubResource("SphereMesh_mc8ej")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.38419e-07, -5.96046e-08)
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_xnikd")
+
+[node name="Main ball" type="MeshInstance2D" parent="CollisionShape2D"]
+self_modulate = Color(0.176471, 0.639216, 0, 1)
+scale = Vector2(20, 20)
+mesh = SubResource("SphereMesh_fxyan")
+
+[node name="ExplosionParticles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 25
+one_shot = true
+explosiveness = 0.9
+direction = Vector2(1, 1)
+spread = 180.0
+gravity = Vector2(0, 500)
+initial_velocity_min = 156.32
+initial_velocity_max = 307.83
+angular_velocity_min = -550.0
+angular_velocity_max = 550.0
+linear_accel_min = 100.0
+linear_accel_max = 150.0
+scale_amount_min = 15.0
+scale_amount_max = 30.0
+color = Color(0.144322, 0.542796, 3.85046e-07, 1)
+color_ramp = SubResource("Gradient_vnj2y")
+
+[node name="life" type="Timer" parent="."]
+wait_time = 1.7
+one_shot = true
+
+[node name="randMov" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="life" to="." method="_on_life_timeout"]
+[connection signal="timeout" from="randMov" to="." method="_on_rand_mov_timeout"]

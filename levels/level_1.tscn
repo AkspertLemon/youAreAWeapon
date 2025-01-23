@@ -1,16 +1,93 @@
-[gd_scene load_steps=3 format=3 uid="uid://i8jl0htl0sbk"]
+[gd_scene load_steps=11 format=3 uid="uid://i8jl0htl0sbk"]
 
 [ext_resource type="PackedScene" uid="uid://1045u2o5op2" path="res://Player/bomb_player.tscn" id="1_0u1fr"]
+[ext_resource type="Texture2D" uid="uid://dprrwoehhhxay" path="res://Assets/level_1_wip.png" id="1_ug2pv"]
 [ext_resource type="PackedScene" uid="uid://bvwuk2wv4ig65" path="res://Scenes/level_finish.tscn" id="2_3pdo8"]
+[ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="3_2atyg"]
+[ext_resource type="PackedScene" uid="uid://cqyialgd2eca8" path="res://Scenes/stabillizer.tscn" id="5_fqgpo"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hi5hd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0ae8"]
+size = Vector2(632, 182)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q8038"]
+radius = 86.0
+height = 482.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6sfuw"]
+size = Vector2(364, 218)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exc6e"]
+size = Vector2(546, 104)
 
 [node name="level_1" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(268, 274)
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1600, 900)
+offset_right = 3200.0
+offset_bottom = 900.0
+texture = ExtResource("1_ug2pv")
 
 [node name="BombPlayer" parent="." instance=ExtResource("1_0u1fr")]
 top_level = true
-position = Vector2(194, 162)
+z_index = 2
+position = Vector2(122, 350)
+
+[node name="Camera2D" type="Camera2D" parent="BombPlayer"]
+position = Vector2(0, 1)
+limit_left = 0
+limit_top = 0
+limit_right = 3200
+limit_bottom = 0
+position_smoothing_enabled = true
+script = ExtResource("3_2atyg")
 
 [node name="Level_Finish" parent="." instance=ExtResource("2_3pdo8")]
-position = Vector2(-60, 106)
+position = Vector2(3020, 409)
+
+[node name="levelColliders" type="Node2D" parent="."]
+visible = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="levelColliders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelColliders/StaticBody2D"]
+position = Vector2(1227, 900)
+shape = SubResource("WorldBoundaryShape2D_hi5hd")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="levelColliders/StaticBody2D"]
+position = Vector2(1227, 0)
+rotation = -3.14159
+shape = SubResource("WorldBoundaryShape2D_hi5hd")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="levelColliders/StaticBody2D"]
+position = Vector2(0, 361)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_hi5hd")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="levelColliders/StaticBody2D"]
+position = Vector2(1338, 584)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_d0ae8")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="levelColliders/StaticBody2D"]
+position = Vector2(148, 686)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_q8038")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="levelColliders/StaticBody2D"]
+position = Vector2(206, 789)
+shape = SubResource("RectangleShape2D_6sfuw")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="levelColliders/StaticBody2D"]
+position = Vector2(274, 52)
+shape = SubResource("RectangleShape2D_exc6e")
+
+[node name="Stabillizer" parent="." instance=ExtResource("5_fqgpo")]
+position = Vector2(723, 460)
+
+[node name="Stabillizer2" parent="." instance=ExtResource("5_fqgpo")]
+position = Vector2(1793, 258)
+
+[node name="Stabillizer3" parent="." instance=ExtResource("5_fqgpo")]
+position = Vector2(2157, 537)

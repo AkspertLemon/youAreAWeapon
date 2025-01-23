@@ -15,9 +15,17 @@ run/main_scene="res://levels/level_1.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=900
+window/size/mode=1
+window/size/resizable=false
+
 [global_group]
 
 Player=""
+Projectiles=""
 
 [input]
 

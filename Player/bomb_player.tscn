@@ -20,7 +20,6 @@ material = SubResource("StandardMaterial3D_kpp5e")
 
 [node name="BombPlayer" type="RigidBody2D" groups=["Player"]]
 script = ExtResource("1_4ce6x")
-projec_num = 4
 
 [node name="BlackCircle" type="MeshInstance2D" parent="."]
 modulate = Color(0.0666667, 0.0666667, 0.0666667, 1)
@@ -52,20 +51,20 @@ rotation = 1.5708
 scale = Vector2(64, 3)
 mesh = SubResource("BoxMesh_yd78h")
 
+[node name="bombTimer" type="Timer" parent="."]
+wait_time = 4.0
+
 [node name="graceTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 
-[node name="bombTimer" type="Timer" parent="."]
-wait_time = 4.0
-
 [node name="Clock_ticker" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_e4krs")
-volume_db = -20.0
+volume_db = -10.0
 
 [node name="Explode_snd" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_quxxm")
-volume_db = -20.0
+volume_db = -10.0
 
-[connection signal="timeout" from="graceTimer" to="." method="explode_timeout"]
 [connection signal="timeout" from="bombTimer" to="." method="_on_bomb_timer_timeout"]
+[connection signal="timeout" from="graceTimer" to="." method="explode_timeout"]

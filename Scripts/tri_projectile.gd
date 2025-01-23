@@ -1,5 +1,5 @@
 extends CharacterBody2D
-var SPEED = 600
+var SPEED = 500
 var dir:float
 var spawnPos:Vector2
 var spawnRot:float
@@ -12,7 +12,5 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	velocity=Vector2(0,-SPEED).rotated(dir)
 	move_and_slide()
-
-
 func _on_life_timeout() -> void:
 	queue_free()
