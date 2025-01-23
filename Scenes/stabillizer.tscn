@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqyialgd2eca8"]
+[gd_scene load_steps=7 format=3 uid="uid://cqyialgd2eca8"]
 
 [ext_resource type="Script" path="res://Scripts/stabillizer.gd" id="1_wcqjw"]
 
@@ -7,6 +7,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_xnikd"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_fxyan"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_bmddf"]
+polygon = PackedVector2Array(-4.76838e-08, -10, 5, -8.8, 9, -4.6, 10, 1.19209e-08, 8.8, 4.4, 6, 8.2, -4.76838e-08, 10, -6.2, 8, -9.8, 2.2, -9.2, -3.8, -6.6, -7.6, -3.4, -9.4)
 
 [sub_resource type="Gradient" id="Gradient_vnj2y"]
 offsets = PackedFloat32Array(0.753333, 1)
@@ -30,6 +33,9 @@ shape = SubResource("CircleShape2D_xnikd")
 self_modulate = Color(0.176471, 0.639216, 0, 1)
 scale = Vector2(20, 20)
 mesh = SubResource("SphereMesh_fxyan")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="CollisionShape2D"]
+occluder = SubResource("OccluderPolygon2D_bmddf")
 
 [node name="ExplosionParticles" type="CPUParticles2D" parent="."]
 emitting = false

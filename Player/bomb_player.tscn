@@ -20,6 +20,7 @@ material = SubResource("StandardMaterial3D_kpp5e")
 
 [node name="BombPlayer" type="RigidBody2D" groups=["Player"]]
 script = ExtResource("1_4ce6x")
+projec_num = 4
 
 [node name="BlackCircle" type="MeshInstance2D" parent="."]
 modulate = Color(0.0666667, 0.0666667, 0.0666667, 1)

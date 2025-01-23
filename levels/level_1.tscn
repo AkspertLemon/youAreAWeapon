@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://i8jl0htl0sbk"]
+[gd_scene load_steps=14 format=3 uid="uid://i8jl0htl0sbk"]
 
 [ext_resource type="PackedScene" uid="uid://1045u2o5op2" path="res://Player/bomb_player.tscn" id="1_0u1fr"]
 [ext_resource type="Texture2D" uid="uid://dprrwoehhhxay" path="res://Assets/level_1_wip.png" id="1_ug2pv"]
@@ -20,6 +20,15 @@ size = Vector2(364, 218)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_exc6e"]
 size = Vector2(546, 104)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_dn0fq"]
+polygon = PackedVector2Array(2, 597, 313, 600, 365, 625, 389, 671, 392, 899, 1, 899)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_yhij8"]
+polygon = PackedVector2Array(179, -1, -2, -1, -1, 630, 182, 630)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_uirpd"]
+polygon = PackedVector2Array(1, 140, 456, 141, 518, 127, 546, 100, 547, 0, 0, 0)
 
 [node name="level_1" type="Node2D"]
 
@@ -91,3 +100,15 @@ position = Vector2(1793, 258)
 
 [node name="Stabillizer3" parent="." instance=ExtResource("5_fqgpo")]
 position = Vector2(2157, 537)
+
+[node name="Shadows" type="Node2D" parent="."]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Shadows"]
+occluder = SubResource("OccluderPolygon2D_dn0fq")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="Shadows"]
+position = Vector2(1249, 268)
+occluder = SubResource("OccluderPolygon2D_yhij8")
+
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="Shadows"]
+occluder = SubResource("OccluderPolygon2D_uirpd")

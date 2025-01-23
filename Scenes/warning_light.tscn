@@ -1,15 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://uxljix6pscti"]
 
-[ext_resource type="Texture2D" uid="uid://bdcjib8mr0drr" path="res://Assets/ProjectileTriangle.png" id="1_cstcm"]
+[ext_resource type="Texture2D" uid="uid://swyg3iccg764" path="res://Assets/red_pix.png" id="1_3abxb"]
 [ext_resource type="Script" path="res://Scripts/warning_light.gd" id="2_al136"]
 
-[node name="PointLight2D" type="PointLight2D"]
-scale = Vector2(0.1, 1)
+[node name="Warning_Light" type="PointLight2D"]
+show_behind_parent = true
+scale = Vector2(5, 1600)
 enabled = false
 color = Color(0.445961, 0.0926406, 0.122665, 1)
 energy = 20.0
-texture = ExtResource("1_cstcm")
-offset = Vector2(0, -64)
+shadow_enabled = true
+texture = ExtResource("1_3abxb")
+offset = Vector2(0, -0.5)
 script = ExtResource("2_al136")
 
 [node name="warnTimer" type="Timer" parent="."]

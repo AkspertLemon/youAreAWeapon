@@ -3,6 +3,8 @@ extends RigidBody2D
 @onready var main = get_tree().get_root().get_node("level_1")
 @onready var projectile = load("res://Scenes/tri_projectile.tscn")
 var size = 3
+@export var projec_num:int
+var rot_offset:float
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,10 +26,10 @@ func _process(delta: float) -> void:
 	if  not $Clock_ticker.playing && not $Explode_snd.playing:$Clock_ticker.play(0)
 	
 	
-@export var projec_num = 4
-var rot_offset = 2*PI/projec_num
 func _on_bomb_timer_timeout() -> void:
 	var tween := create_tween().bind_node(self).set_trans(Tween.TRANS_LINEAR)
+	projec_num
+	rot_offset = 2*PI/projec_num
 	tween.tween_property($MeshInstance2D, "modulate", Color.CRIMSON, $graceTimer.wait_time*0.9)
 	$graceTimer.start()
 	for n in range(projec_num):
@@ -35,6 +37,8 @@ func _on_bomb_timer_timeout() -> void:
 		Wlight.spawnRot = rotation+((n-1)*rot_offset)
 		Wlight.spawnPos = global_position
 		Wlight.timer = $graceTimer.wait_time
+		Wlight.zdex = z_index-1
+		self.add_child.call_deferred(Wlight)
 func explode() -> void:
 	$Clock_ticker.stop()
 	$Explode_snd.play(0)
