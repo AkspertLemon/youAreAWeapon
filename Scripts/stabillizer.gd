@@ -15,7 +15,7 @@ func _on_rand_mov_timeout() -> void:
 func _on_area_entered(area: Area2D) -> void:
 	$randMov.stop()
 	$life.start()
-	area.get_parent().queue_free()
+	area.get_parent().kill() #The projectile has a kill function that displays particles and queues frees
 	$ExplosionParticles.position=$CollisionShape2D.position
 	$CollisionShape2D.queue_free()
 	$ExplosionParticles.restart()

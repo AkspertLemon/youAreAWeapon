@@ -13,4 +13,11 @@ func _physics_process(_delta: float) -> void:
 	velocity=Vector2(0,-SPEED).rotated(dir)
 	move_and_slide()
 func _on_life_timeout() -> void:
-	queue_free()
+	kill()
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if not body.is_in_group("Player"): 
+		kill()
+
+func kill():
+	$explosion.emitting=true
