@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cpdp43k8g3bsd"
+path="res://.godot/imported/City sounds.wav-c3130abe81205b05f364555627f3eb2d.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/City sounds.wav"
+dest_files=["res://.godot/imported/City sounds.wav-c3130abe81205b05f364555627f3eb2d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

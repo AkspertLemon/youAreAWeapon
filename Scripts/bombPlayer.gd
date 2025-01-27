@@ -1,6 +1,5 @@
 extends RigidBody2D
 
-@onready var main = get_tree().get_root().get_node("level_1")
 @onready var projectile = load("res://Scenes/tri_projectile.tscn")
 var size = 3
 @export var projec_num:int
@@ -28,7 +27,7 @@ func _process(delta: float) -> void:
 	
 func _on_bomb_timer_timeout() -> void:
 	var tween := create_tween().bind_node(self).set_trans(Tween.TRANS_LINEAR)
-	projec_num
+	projec_num=4
 	rot_offset = 2*PI/projec_num
 	tween.tween_property($MeshInstance2D, "modulate", Color.CRIMSON, $graceTimer.wait_time*0.9)
 	$graceTimer.start()
@@ -48,7 +47,7 @@ func explode() -> void:
 		instance.spawnPos = global_position
 		instance.spawnRot = rotation+((n-1)*rot_offset)
 		instance.zdex = z_index-1
-		main.add_child.call_deferred(instance)
+		self.add_sibling.call_deferred(instance)
 	$MeshInstance2D.modulate=Color.DARK_TURQUOISE
 
 

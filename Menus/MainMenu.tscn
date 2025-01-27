@@ -1,11 +1,49 @@
-[gd_scene load_steps=7 format=3 uid="uid://o6okcvuglucl"]
+[gd_scene load_steps=11 format=3 uid="uid://o6okcvuglucl"]
 
-[ext_resource type="Texture2D" uid="uid://cgquljdgmxpks" path="res://Assets/City Bg/1.png" id="1_3rt0a"]
-[ext_resource type="Texture2D" uid="uid://cb258qv2r6ibc" path="res://Assets/City Bg/2.png" id="2_5jxi7"]
-[ext_resource type="Texture2D" uid="uid://b7o84w81e788x" path="res://Assets/City Bg/3.png" id="3_sx8i5"]
-[ext_resource type="Texture2D" uid="uid://d2i75fi1i2iob" path="res://Assets/City Bg/4.png" id="4_gayqu"]
-[ext_resource type="Texture2D" uid="uid://bpqctfrunwei3" path="res://Assets/City Bg/5.png" id="5_pp780"]
+[ext_resource type="Texture2D" uid="uid://cgquljdgmxpks" path="res://Assets/City Bg/Sky.png" id="1_3rt0a"]
+[ext_resource type="Script" path="res://Menus/Script/main_menu.gd" id="1_oksqb"]
+[ext_resource type="Texture2D" uid="uid://cb258qv2r6ibc" path="res://Assets/City Bg/1.png" id="2_5jxi7"]
+[ext_resource type="Texture2D" uid="uid://b7o84w81e788x" path="res://Assets/City Bg/2.png" id="3_sx8i5"]
+[ext_resource type="Texture2D" uid="uid://d2i75fi1i2iob" path="res://Assets/City Bg/3.png" id="4_gayqu"]
+[ext_resource type="Texture2D" uid="uid://bpqctfrunwei3" path="res://Assets/City Bg/4.png" id="5_pp780"]
 [ext_resource type="Theme" uid="uid://ccijbwjqi8i2p" path="res://Menus/menutheme.tres" id="6_2ga68"]
+
+[sub_resource type="Animation" id="Animation_8hmnm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7mle2"]
+resource_name = "fade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.433333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0.0142572, 0.108881, 0.233304, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nfbbi"]
+_data = {
+"RESET": SubResource("Animation_8hmnm"),
+"fade": SubResource("Animation_7mle2")
+}
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -14,60 +52,65 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_oksqb")
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(-6, 9.53674e-07)
-scale = Vector2(2.78214, 2.78214)
+[node name="Background" type="Node2D" parent="."]
 
-[node name="Sky" type="Parallax2D" parent="Node2D"]
-repeat_size = Vector2(100, 0)
-autoscroll = Vector2(10, 0)
-ignore_camera_scroll = true
-
-[node name="1" type="Sprite2D" parent="Node2D/Sky"]
+[node name="Sky2" type="Sprite2D" parent="Background"]
 texture_filter = 1
-position = Vector2(290, 162)
+position = Vector2(-2.15661, 3.42784e-07)
+scale = Vector2(3, 3)
 texture = ExtResource("1_3rt0a")
+centered = false
 
-[node name="Bulidings1" type="Parallax2D" parent="Node2D"]
-repeat_size = Vector2(500, 1)
-autoscroll = Vector2(20, 0)
+[node name="Buldings1" type="Parallax2D" parent="Background"]
+scroll_offset = Vector2(-30, 0)
+repeat_size = Vector2(1728, 0)
+autoscroll = Vector2(-20, 0)
 ignore_camera_scroll = true
 
-[node name="2" type="Sprite2D" parent="Node2D/Bulidings1"]
+[node name="1" type="Sprite2D" parent="Background/Buldings1"]
 texture_filter = 1
-position = Vector2(290, 162)
+scale = Vector2(3, 3)
 texture = ExtResource("2_5jxi7")
+centered = false
 
-[node name="Buildings2" type="Parallax2D" parent="Node2D"]
-repeat_size = Vector2(500, 1)
-autoscroll = Vector2(30, 0)
+[node name="Buldings2" type="Parallax2D" parent="Background"]
+scroll_offset = Vector2(-30, 0)
+repeat_size = Vector2(1728, 0)
+autoscroll = Vector2(-30, 0)
 ignore_camera_scroll = true
 
-[node name="3" type="Sprite2D" parent="Node2D/Buildings2"]
+[node name="2" type="Sprite2D" parent="Background/Buldings2"]
 texture_filter = 1
-position = Vector2(290, 162)
+scale = Vector2(3, 3)
 texture = ExtResource("3_sx8i5")
+centered = false
 
-[node name="Buildings3" type="Parallax2D" parent="Node2D"]
-repeat_size = Vector2(500, 1)
-autoscroll = Vector2(40, 0)
+[node name="Buldings3" type="Parallax2D" parent="Background"]
+scroll_offset = Vector2(-30, 0)
+repeat_size = Vector2(1728, 0)
+autoscroll = Vector2(-40, 0)
 ignore_camera_scroll = true
 
-[node name="4" type="Sprite2D" parent="Node2D/Buildings3"]
+[node name="3" type="Sprite2D" parent="Background/Buldings3"]
 texture_filter = 1
-position = Vector2(290, 162)
+scale = Vector2(3, 3)
 texture = ExtResource("4_gayqu")
+centered = false
 
-[node name="Buildings4" type="Parallax2D" parent="Node2D"]
-repeat_size = Vector2(500, 1)
-autoscroll = Vector2(50, 0)
+[node name="Buldings4" type="Parallax2D" parent="Background"]
+scroll_offset = Vector2(-30, 0)
+repeat_size = Vector2(1728, 0)
+autoscroll = Vector2(-50, 0)
 ignore_camera_scroll = true
 
-[node name="5" type="Sprite2D" parent="Node2D/Buildings4"]
+[node name="4" type="Sprite2D" parent="Background/Buldings4"]
 texture_filter = 1
-position = Vector2(290, 162.465)
+position = Vector2(-2.15661, 3.42784e-07)
+scale = Vector2(3, 3)
 texture = ExtResource("5_pp780")
+centered = false
 
 [node name="Play" type="Button" parent="."]
 layout_mode = 1
@@ -77,9 +120,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -609.0
-offset_top = -219.0
+offset_top = -220.0
 offset_right = -360.0
-offset_bottom = -144.0
+offset_bottom = -143.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("6_2ga68")
@@ -128,3 +171,20 @@ offset_right = 865.0
 offset_bottom = 169.0
 theme_override_font_sizes/font_size = 50
 text = "This Game need a name"
+
+[node name="SceneTransition" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SceneTransition"]
+libraries = {
+"": SubResource("AnimationLibrary_nfbbi")
+}
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
