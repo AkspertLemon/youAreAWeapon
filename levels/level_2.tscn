@@ -1,0 +1,180 @@
+[gd_scene load_steps=7 format=3 uid="uid://b7w2hvinfjuu3"]
+
+[ext_resource type="Texture2D" uid="uid://dhiajsxh6evnt" path="res://Assets/level_2.png" id="1_loavl"]
+[ext_resource type="PackedScene" uid="uid://1045u2o5op2" path="res://Player/bomb_player.tscn" id="2_8nuy6"]
+[ext_resource type="PackedScene" uid="uid://cqyialgd2eca8" path="res://Scenes/stabillizer.tscn" id="2_hx55c"]
+[ext_resource type="Texture2D" uid="uid://bdcjib8mr0drr" path="res://Assets/ProjectileTriangle.png" id="3_85xrh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_260t1"]
+size = Vector2(168, 20)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qflpx"]
+polygon = PackedVector2Array(33, 898, 37, 26, 766, 29, 1570, 216, 1575, 881, 1324, 879, 1322, 509, 1290, 511, 1287, 871, 241, 462, 243, 220, 202, 220, 199, 902, 1600, 898, 1594, 1, -5, 1, -2, 899)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Level2" type="Sprite2D" parent="."]
+texture = ExtResource("1_loavl")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level2"]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level2/StaticBody2D"]
+polygon = PackedVector2Array(33, 898, 37, 26, 766, 29, 1570, 216, 1575, 881, 1324, 879, 1322, 509, 1290, 511, 1287, 871, 241, 462, 243, 220, 202, 220, 199, 902, 1600, 898, 1594, 1, -5, 1, -2, 899)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level2/StaticBody2D"]
+position = Vector2(114, 891)
+shape = SubResource("RectangleShape2D_260t1")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Level2"]
+visible = false
+occluder = SubResource("OccluderPolygon2D_qflpx")
+
+[node name="Stabillizers" type="Node2D" parent="."]
+
+[node name="Stabillizer" parent="Stabillizers" instance=ExtResource("2_hx55c")]
+position = Vector2(755, 88)
+sizeOut = 110
+sizeIn = 3
+
+[node name="Stabillizer2" parent="Stabillizers" instance=ExtResource("2_hx55c")]
+position = Vector2(872, 118)
+sizeOut = 110
+sizeIn = 3
+
+[node name="Stabillizer3" parent="Stabillizers" instance=ExtResource("2_hx55c")]
+position = Vector2(994, 145)
+sizeOut = 110
+sizeIn = 3
+
+[node name="Stabillizer4" parent="Stabillizers" instance=ExtResource("2_hx55c")]
+position = Vector2(1117, 173)
+sizeOut = 110
+sizeIn = 3
+
+[node name="Stabillizer5" parent="Stabillizers" instance=ExtResource("2_hx55c")]
+position = Vector2(1224, 197)
+sizeOut = 110
+sizeIn = 3
+
+[node name="Stabillizer6" parent="Stabillizers" instance=ExtResource("2_hx55c")]
+position = Vector2(1353, 232)
+sizeOut = 110
+sizeIn = 3
+
+[node name="Stabillizer7" parent="Stabillizers" instance=ExtResource("2_hx55c")]
+position = Vector2(1466, 250)
+sizeOut = 110
+sizeIn = 3
+
+[node name="Stabillizer8" parent="Stabillizers" instance=ExtResource("2_hx55c")]
+position = Vector2(663, 61)
+sizeOut = 70
+
+[node name="Stabillizer9" parent="Stabillizers" instance=ExtResource("2_hx55c")]
+position = Vector2(314, 427)
+sizeOut = 110
+sizeIn = 3
+
+[node name="Stabillizer10" parent="Stabillizers" instance=ExtResource("2_hx55c")]
+position = Vector2(303, 311)
+sizeOut = 110
+sizeIn = 3
+
+[node name="Stabillizer11" parent="Stabillizers" instance=ExtResource("2_hx55c")]
+position = Vector2(423, 475)
+sizeOut = 110
+sizeIn = 3
+
+[node name="Stabillizer12" parent="Stabillizers" instance=ExtResource("2_hx55c")]
+position = Vector2(407, 362)
+sizeOut = 110
+sizeIn = 3
+
+[node name="Stabillizer13" parent="Stabillizers" instance=ExtResource("2_hx55c")]
+position = Vector2(541, 519)
+sizeOut = 110
+sizeIn = 3
+
+[node name="Stabillizer14" parent="Stabillizers" instance=ExtResource("2_hx55c")]
+position = Vector2(514, 402)
+sizeOut = 110
+sizeIn = 3
+
+[node name="Stabillizer15" parent="Stabillizers" instance=ExtResource("2_hx55c")]
+position = Vector2(657, 560)
+sizeOut = 110
+sizeIn = 3
+
+[node name="Stabillizer16" parent="Stabillizers" instance=ExtResource("2_hx55c")]
+position = Vector2(624, 436)
+sizeOut = 110
+sizeIn = 3
+
+[node name="Stabillizer17" parent="Stabillizers" instance=ExtResource("2_hx55c")]
+position = Vector2(774, 609)
+sizeOut = 110
+sizeIn = 3
+
+[node name="Stabillizer18" parent="Stabillizers" instance=ExtResource("2_hx55c")]
+position = Vector2(750, 485)
+sizeOut = 110
+sizeIn = 3
+
+[node name="Stabillizer19" parent="Stabillizers" instance=ExtResource("2_hx55c")]
+position = Vector2(883, 649)
+sizeOut = 110
+sizeIn = 3
+
+[node name="Stabillizer20" parent="Stabillizers" instance=ExtResource("2_hx55c")]
+position = Vector2(870, 529)
+sizeOut = 110
+sizeIn = 3
+
+[node name="Stabillizer21" parent="Stabillizers" instance=ExtResource("2_hx55c")]
+position = Vector2(997, 693)
+sizeOut = 110
+sizeIn = 3
+
+[node name="Stabillizer22" parent="Stabillizers" instance=ExtResource("2_hx55c")]
+position = Vector2(983, 577)
+sizeOut = 110
+sizeIn = 3
+
+[node name="Stabillizer23" parent="Stabillizers" instance=ExtResource("2_hx55c")]
+position = Vector2(1107, 737)
+sizeOut = 110
+sizeIn = 3
+
+[node name="Stabillizer24" parent="Stabillizers" instance=ExtResource("2_hx55c")]
+position = Vector2(1096, 614)
+sizeOut = 110
+sizeIn = 3
+
+[node name="Stabillizer25" parent="Stabillizers" instance=ExtResource("2_hx55c")]
+position = Vector2(1215, 651)
+sizeOut = 110
+sizeIn = 3
+
+[node name="Stabillizer26" parent="Stabillizers" instance=ExtResource("2_hx55c")]
+position = Vector2(1222, 768)
+sizeOut = 110
+sizeIn = 3
+
+[node name="BombPlayer" parent="." instance=ExtResource("2_8nuy6")]
+position = Vector2(118, 813)
+projec_num = 2
+
+[node name="Marker1" type="Sprite2D" parent="BombPlayer"]
+self_modulate = Color(1, 1, 1, 0.423529)
+position = Vector2(0, -40)
+scale = Vector2(0.0982619, 0.0982619)
+texture = ExtResource("3_85xrh")
+
+[node name="Marker2" type="Sprite2D" parent="BombPlayer"]
+self_modulate = Color(1, 1, 1, 0.423529)
+position = Vector2(0, 40)
+rotation = 3.14159
+scale = Vector2(0.0982619, 0.0982619)
+texture = ExtResource("3_85xrh")

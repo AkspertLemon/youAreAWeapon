@@ -1,132 +1,73 @@
-[gd_scene load_steps=15 format=3 uid="uid://i8jl0htl0sbk"]
+[gd_scene load_steps=8 format=3 uid="uid://bfdsx5l4bvo1g"]
 
-[ext_resource type="PackedScene" uid="uid://1045u2o5op2" path="res://Player/bomb_player.tscn" id="1_0u1fr"]
-[ext_resource type="Texture2D" uid="uid://dprrwoehhhxay" path="res://Assets/level_1_wip.png" id="1_ug2pv"]
-[ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="3_2atyg"]
-[ext_resource type="PackedScene" uid="uid://cqyialgd2eca8" path="res://Scenes/stabillizer.tscn" id="5_fqgpo"]
+[ext_resource type="Texture2D" uid="uid://d2lq2lm50pu8m" path="res://Assets/level_1.png" id="1_0ajeu"]
+[ext_resource type="PackedScene" uid="uid://cqyialgd2eca8" path="res://Scenes/stabillizer.tscn" id="2_upu6e"]
+[ext_resource type="PackedScene" uid="uid://1045u2o5op2" path="res://Player/bomb_player.tscn" id="2_vbeqh"]
+[ext_resource type="Texture2D" uid="uid://bdcjib8mr0drr" path="res://Assets/ProjectileTriangle.png" id="4_gbm73"]
+[ext_resource type="PackedScene" uid="uid://bvwuk2wv4ig65" path="res://Scenes/level_finish.tscn" id="4_yry15"]
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_dn0fq"]
-polygon = PackedVector2Array(2, 597, 313, 600, 365, 625, 389, 671, 392, 899, 1, 899)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bnrme"]
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_yhij8"]
-polygon = PackedVector2Array(179, -1, -2, -1, -1, 630, 182, 630)
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_hvr8n"]
+polygon = PackedVector2Array(1, 895, 1, 723, 358, 541, 43, 541, 42, 31, 829, 31, 832, 259, 844, 260, 844, 32, 1038, 32, 1038, 265, 1050, 265, 1051, 32, 1208, 31, 1209, 261, 1219, 260, 1220, 30, 1389, 31, 1390, 257, 1403, 256, 1401, 29, 1569, 31, 1575, 897, 1145, 897, 1143, 647, 1132, 647, 1131, 898, 900, 895, 900, 652, 888, 649, 888, 898, 632, 893, 631, 221, 523, 384, 526, 727, 141, 897, 1601, 899, 1604, -7, -4, 3, -29, 893)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_uirpd"]
-polygon = PackedVector2Array(1, 140, 456, 141, 518, 127, 546, 100, 547, 0, 0, 0)
+[node name="Node2D" type="Node2D"]
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_o3ncs"]
-polygon = PackedVector2Array(1247, -1, 1247, 156, 1426, 156, 1426, 0)
+[node name="Level1" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_0ajeu")
+centered = false
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hi5hd"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Level1"]
+visible = false
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0ae8"]
-size = Vector2(632, 182)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level1/StaticBody2D"]
+polygon = PackedVector2Array(1, 895, 1, 723, 358, 541, 43, 541, 42, 31, 829, 31, 832, 259, 844, 260, 844, 32, 1038, 32, 1038, 265, 1050, 265, 1051, 32, 1208, 31, 1209, 261, 1219, 260, 1220, 30, 1389, 31, 1390, 257, 1403, 256, 1401, 29, 1569, 31, 1575, 897, 1145, 897, 1143, 647, 1132, 647, 1131, 899, 899, 896, 900, 652, 888, 649, 888, 897, 632, 893, 631, 221, 523, 384, 526, 727, 141, 897, 1601, 899, 1604, -7, -4, 3, -29, 893)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q8038"]
-radius = 86.0
-height = 482.0
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level1/StaticBody2D"]
+position = Vector2(378, 898)
+shape = SubResource("WorldBoundaryShape2D_bnrme")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6sfuw"]
-size = Vector2(364, 218)
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Level1"]
+visible = false
+occluder = SubResource("OccluderPolygon2D_hvr8n")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wdjy5"]
-size = Vector2(178, 157)
+[node name="Stabillizer" parent="." instance=ExtResource("2_upu6e")]
+position = Vector2(937, 148)
+execute_button = null
 
-[sub_resource type="BoxMesh" id="BoxMesh_6u365"]
+[node name="Stabillizer2" parent="." instance=ExtResource("2_upu6e")]
+position = Vector2(1132, 147)
+execute_button = null
 
-[node name="level_1" type="Node2D"]
+[node name="Stabillizer3" parent="." instance=ExtResource("2_upu6e")]
+position = Vector2(1307, 147)
+execute_button = null
 
-[node name="TextureRect" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(1600, 900)
-offset_right = 3200.0
-offset_bottom = 900.0
-texture = ExtResource("1_ug2pv")
+[node name="Stabillizer4" parent="." instance=ExtResource("2_upu6e")]
+position = Vector2(1477, 146)
+execute_button = null
 
-[node name="BombPlayer" parent="." instance=ExtResource("1_0u1fr")]
-top_level = true
-z_index = 2
-position = Vector2(122, 350)
+[node name="Stabillizer5" parent="." instance=ExtResource("2_upu6e")]
+position = Vector2(1008, 772)
+execute_button = null
 
-[node name="Camera2D" type="Camera2D" parent="BombPlayer"]
-position = Vector2(0, 1)
-limit_left = 0
-limit_top = 0
-limit_right = 3200
-limit_bottom = 0
-position_smoothing_enabled = true
-script = ExtResource("3_2atyg")
+[node name="Stabillizer6" parent="." instance=ExtResource("2_upu6e")]
+position = Vector2(759, 772)
+execute_button = null
 
-[node name="Shadows" type="Node2D" parent="."]
+[node name="BombPlayer" parent="." instance=ExtResource("2_vbeqh")]
+position = Vector2(93, 803)
+projec_num = 1
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Shadows"]
-occluder = SubResource("OccluderPolygon2D_dn0fq")
+[node name="Sprite2D" type="Sprite2D" parent="BombPlayer"]
+modulate = Color(1, 1, 1, 0.431373)
+position = Vector2(0, -43)
+scale = Vector2(0.0928888, 0.0928888)
+texture = ExtResource("4_gbm73")
 
-[node name="LightOccluder2D2" type="LightOccluder2D" parent="Shadows"]
-position = Vector2(1249, 268)
-occluder = SubResource("OccluderPolygon2D_yhij8")
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(800, 450)
 
-[node name="LightOccluder2D3" type="LightOccluder2D" parent="Shadows"]
-occluder = SubResource("OccluderPolygon2D_uirpd")
-
-[node name="LightOccluder2D4" type="LightOccluder2D" parent="Shadows"]
-occluder = SubResource("OccluderPolygon2D_o3ncs")
-
-[node name="levelColliders" type="Node2D" parent="."]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="levelColliders"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="levelColliders/StaticBody2D"]
-position = Vector2(1227, 900)
-shape = SubResource("WorldBoundaryShape2D_hi5hd")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="levelColliders/StaticBody2D"]
-position = Vector2(1227, 0)
-rotation = -3.14159
-shape = SubResource("WorldBoundaryShape2D_hi5hd")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="levelColliders/StaticBody2D"]
-position = Vector2(0, 361)
-rotation = 1.5708
-shape = SubResource("WorldBoundaryShape2D_hi5hd")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="levelColliders/StaticBody2D"]
-position = Vector2(1338, 584)
-rotation = 1.5708
-shape = SubResource("RectangleShape2D_d0ae8")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="levelColliders/StaticBody2D"]
-position = Vector2(148, 686)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_q8038")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="levelColliders/StaticBody2D"]
-position = Vector2(206, 789)
-shape = SubResource("RectangleShape2D_6sfuw")
-
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="levelColliders/StaticBody2D"]
-position = Vector2(1336, 77)
-shape = SubResource("RectangleShape2D_wdjy5")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="levelColliders/StaticBody2D"]
-polygon = PackedVector2Array(544, 2, 546, 97, 521, 124, 471, 138, 1, 141, 0, 2)
-
-[node name="Stabillizer" parent="." instance=ExtResource("5_fqgpo")]
-position = Vector2(1754, 694)
-
-[node name="Stabillizer2" parent="." instance=ExtResource("5_fqgpo")]
-position = Vector2(1874, 402)
-
-[node name="Stabillizer3" parent="." instance=ExtResource("5_fqgpo")]
-position = Vector2(838, 450)
-
-[node name="Stabillizer4" parent="." instance=ExtResource("5_fqgpo")]
-position = Vector2(682, 714)
-
-[node name="Stabillizer5" parent="." instance=ExtResource("5_fqgpo")]
-position = Vector2(2052, 760)
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-self_modulate = Color(0.0352941, 0.0705882, 0.172549, 1)
-position = Vector2(1336, 66)
-scale = Vector2(180, 180)
-mesh = SubResource("BoxMesh_6u365")
+[node name="Level_Finish" parent="." instance=ExtResource("4_yry15")]
+position = Vector2(1467, 786)

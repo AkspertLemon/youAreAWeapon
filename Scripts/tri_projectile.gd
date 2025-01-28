@@ -5,9 +5,10 @@ var spawnPos:Vector2
 var spawnRot:float
 var zdex:int
 func _ready() -> void:
-	z_index=zdex
+	z_index=zdex+2
 	global_position=spawnPos
 	global_rotation=spawnRot
+	print("Spawned")
 	
 func _physics_process(_delta: float) -> void:
 	velocity=Vector2(0,-SPEED).rotated(dir)
@@ -20,4 +21,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		kill()
 
 func kill():
-	$explosion.emitting=true
+	queue_free()
+	#$explosion.emitting=true
+	#$Sprite2D.modulate(Color.TRANSPARENT)
+	#$Grace.start()
+func _on_grace_timeout() -> void:
+	queue_free()

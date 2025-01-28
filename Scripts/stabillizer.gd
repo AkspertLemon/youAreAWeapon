@@ -1,9 +1,24 @@
+@tool
 extends Area2D
-@onready var offset_distance = $CollisionShape2D.scale[0]*10
-@onready var rel_size = ($Feild.scale[0]/2)-offset_distance
 var movTween
+
+@export var sizeOut:int
+@export var sizeIn:int
+@export var execute_button:bool=false:
+	set = _set_execute_button
+	
+@onready var offset_distance = sizeIn*10
+@onready var rel_size = (sizeOut/2)-offset_distance
+func _set_execute_button(new_val:bool)->void:
+	execute_button=false
+	$Feild.scale=Vector2(sizeOut,sizeOut)
+	$CollisionShape2D.scale=Vector2(sizeIn,sizeIn)
+
 func _ready() -> void:
-	_on_rand_mov_timeout()
+	if not Engine.is_editor_hint():
+		_on_rand_mov_timeout()
+		$Feild.scale=Vector2(sizeOut,sizeOut)
+		$CollisionShape2D.scale=Vector2(sizeIn,sizeIn)
 
 func _on_rand_mov_timeout() -> void:
 	var x_pos = randi_range(-rel_size,rel_size)
@@ -13,13 +28,14 @@ func _on_rand_mov_timeout() -> void:
 	movTween.tween_property($CollisionShape2D,"position",f_pos,$randMov.wait_time)
 
 func _on_area_entered(area: Area2D) -> void:
-	$randMov.stop()
-	$life.start()
-	area.get_parent().kill() #The projectile has a kill function that displays particles and queues frees
-	$ExplosionParticles.position=$CollisionShape2D.position
-	$CollisionShape2D.queue_free()
-	$ExplosionParticles.restart()
-	$Feild.create_tween().tween_property($Feild,"self_modulate",Color(0,0,0,0),$life.wait_time)
+	if area.is_in_group("Projectiles"):
+		$randMov.stop()
+		$life.start()
+		area.get_parent().kill() #The projectile has a kill function that displays particles and queues frees
+		$ExplosionParticles.position=$CollisionShape2D.position
+		$CollisionShape2D.queue_free()
+		$ExplosionParticles.restart()
+		$Feild.create_tween().tween_property($Feild,"self_modulate",Color(0,0,0,0),$life.wait_time)
 
 
 func _on_life_timeout() -> void:

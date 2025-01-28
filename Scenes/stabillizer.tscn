@@ -18,15 +18,16 @@ colors = PackedColorArray(0.176471, 0.639216, 0, 1, 1, 1, 1, 0)
 [node name="Stabillizer" type="Area2D"]
 z_index = 1
 script = ExtResource("1_wcqjw")
+sizeOut = 100
+sizeIn = 2
 
 [node name="Feild" type="MeshInstance2D" parent="."]
 self_modulate = Color(0.514102, 0.847655, 0.598568, 0.152941)
-scale = Vector2(240, 240)
+scale = Vector2(100, 100)
 mesh = SubResource("SphereMesh_mc8ej")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2.38419e-07, -5.96046e-08)
-scale = Vector2(5, 5)
+scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_xnikd")
 
 [node name="Main ball" type="MeshInstance2D" parent="CollisionShape2D"]
@@ -35,6 +36,7 @@ scale = Vector2(20, 20)
 mesh = SubResource("SphereMesh_fxyan")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="CollisionShape2D"]
+visible = false
 occluder = SubResource("OccluderPolygon2D_bmddf")
 
 [node name="ExplosionParticles" type="CPUParticles2D" parent="."]

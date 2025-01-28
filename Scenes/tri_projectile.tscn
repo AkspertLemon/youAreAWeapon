@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/tri_projectile.gd" id="2_ytb40"]
 
 [sub_resource type="Gradient" id="Gradient_7l4iy"]
-offsets = PackedFloat32Array(0.579365, 1)
+offsets = PackedFloat32Array(0.633663, 1)
 colors = PackedColorArray(0.862745, 0.0784314, 0.235294, 1, 1, 1, 1, 0)
 
 [node name="tri_projectile" type="CharacterBody2D"]
@@ -23,7 +23,7 @@ wait_time = 5.0
 autostart = true
 
 [node name="Grace" type="Timer" parent="."]
-autostart = true
+one_shot = true
 
 [node name="Area2D" type="Area2D" parent="." groups=["Projectiles"]]
 
@@ -33,13 +33,14 @@ polygon = PackedVector2Array(-64, 63, 63, 64, -1, -64)
 [node name="explosion" type="CPUParticles2D" parent="."]
 position = Vector2(-3.8147e-06, 22.2222)
 emitting = false
+lifetime = 0.2
 one_shot = true
 explosiveness = 0.9
 direction = Vector2(0, 1)
 spread = 35.0
 gravity = Vector2(0, 0)
-initial_velocity_min = 200.0
-initial_velocity_max = 600.0
+initial_velocity_min = 600.0
+initial_velocity_max = 1800.0
 angular_velocity_min = -100.0
 angular_velocity_max = 100.0
 scale_amount_min = 4.0
@@ -48,5 +49,5 @@ color = Color(0.862745, 0.0784314, 0.235294, 1)
 color_ramp = SubResource("Gradient_7l4iy")
 
 [connection signal="timeout" from="Life" to="." method="_on_life_timeout"]
-[connection signal="timeout" from="Grace" to="." method="_on_life_timeout"]
+[connection signal="timeout" from="Grace" to="." method="_on_grace_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

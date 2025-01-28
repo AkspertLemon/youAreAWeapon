@@ -9,7 +9,7 @@
 [sub_resource type="SphereMesh" id="SphereMesh_bl572"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wrhp8"]
-radius = 10.668
+radius = 10.3333
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kpp5e"]
 
@@ -19,6 +19,7 @@ material = SubResource("StandardMaterial3D_kpp5e")
 [sub_resource type="BoxMesh" id="BoxMesh_yd78h"]
 
 [node name="BombPlayer" type="RigidBody2D" groups=["Player"]]
+position = Vector2(46, 43)
 script = ExtResource("1_4ce6x")
 projec_num = 4
 
