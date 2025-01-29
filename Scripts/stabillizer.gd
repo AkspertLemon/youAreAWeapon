@@ -9,7 +9,7 @@ var movTween
 	
 @onready var offset_distance = sizeIn*10
 @onready var rel_size = (sizeOut/2)-offset_distance
-func _set_execute_button(new_val:bool)->void:
+func _set_execute_button(_newVal:bool)->void:
 	execute_button=false
 	$Feild.scale=Vector2(sizeOut,sizeOut)
 	$CollisionShape2D.scale=Vector2(sizeIn,sizeIn)

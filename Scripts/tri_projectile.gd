@@ -8,7 +8,6 @@ func _ready() -> void:
 	z_index=zdex+2
 	global_position=spawnPos
 	global_rotation=spawnRot
-	print("Spawned")
 	
 func _physics_process(_delta: float) -> void:
 	velocity=Vector2(0,-SPEED).rotated(dir)

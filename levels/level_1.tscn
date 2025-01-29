@@ -19,7 +19,6 @@ texture = ExtResource("1_0ajeu")
 centered = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Level1"]
-visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level1/StaticBody2D"]
 polygon = PackedVector2Array(1, 895, 1, 723, 358, 541, 43, 541, 42, 31, 829, 31, 832, 259, 844, 260, 844, 32, 1038, 32, 1038, 265, 1050, 265, 1051, 32, 1208, 31, 1209, 261, 1219, 260, 1220, 30, 1389, 31, 1390, 257, 1403, 256, 1401, 29, 1569, 31, 1575, 897, 1145, 897, 1143, 647, 1132, 647, 1131, 899, 899, 896, 900, 652, 888, 649, 888, 897, 632, 893, 631, 221, 523, 384, 526, 727, 141, 897, 1601, 899, 1604, -7, -4, 3, -29, 893)
@@ -29,32 +28,29 @@ position = Vector2(378, 898)
 shape = SubResource("WorldBoundaryShape2D_bnrme")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Level1"]
-visible = false
 occluder = SubResource("OccluderPolygon2D_hvr8n")
 
 [node name="Stabillizer" parent="." instance=ExtResource("2_upu6e")]
-position = Vector2(937, 148)
-execute_button = null
+position = Vector2(945, 148)
+sizeOut = 175
+sizeIn = 4
 
 [node name="Stabillizer2" parent="." instance=ExtResource("2_upu6e")]
 position = Vector2(1132, 147)
-execute_button = null
+sizeOut = 150
+sizeIn = 4
 
 [node name="Stabillizer3" parent="." instance=ExtResource("2_upu6e")]
 position = Vector2(1307, 147)
-execute_button = null
 
 [node name="Stabillizer4" parent="." instance=ExtResource("2_upu6e")]
 position = Vector2(1477, 146)
-execute_button = null
 
 [node name="Stabillizer5" parent="." instance=ExtResource("2_upu6e")]
 position = Vector2(1008, 772)
-execute_button = null
 
 [node name="Stabillizer6" parent="." instance=ExtResource("2_upu6e")]
 position = Vector2(759, 772)
-execute_button = null
 
 [node name="BombPlayer" parent="." instance=ExtResource("2_vbeqh")]
 position = Vector2(93, 803)
@@ -71,3 +67,4 @@ offset = Vector2(800, 450)
 
 [node name="Level_Finish" parent="." instance=ExtResource("4_yry15")]
 position = Vector2(1467, 786)
+next_scn = "res://levels/level_2.tscn"

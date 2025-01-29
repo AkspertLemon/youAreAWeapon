@@ -222,7 +222,7 @@ position = Vector2(-1328.9, -481.043)
 scale = Vector2(2.18268, 2.18268)
 
 [node name="ButtonClr" type="MeshInstance2D" parent="Mechanism/LevelButton"]
-modulate = Color(0.301961, 0.701961, 0.313726, 1)
+modulate = Color(0.934291, 0, 0.198752, 1)
 position = Vector2(-0.0175883, 7.71515)
 scale = Vector2(39.0347, 9.04584)
 mesh = SubResource("BoxMesh_1dles")
@@ -238,6 +238,7 @@ scale = Vector2(0.737487, 1.05059)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mechanism/LevelButton/Base/StaticBody2D"]
 position = Vector2(0.000355959, -0.751611)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ewh7c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mechanism/LevelButton"]
