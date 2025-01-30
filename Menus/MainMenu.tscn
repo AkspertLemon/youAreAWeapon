@@ -170,7 +170,7 @@ offset_top = 100.0
 offset_right = 865.0
 offset_bottom = 169.0
 theme_override_font_sizes/font_size = 50
-text = "This Game need a name"
+text = "Dangerous Drone"
 
 [node name="SceneTransition" type="ColorRect" parent="."]
 visible = false

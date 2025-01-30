@@ -7,8 +7,9 @@ func _ready() -> void:
 	var tween := create_tween().bind_node(self)
 	tween.tween_property($Sprite2D,"rotation",-360,1000)
 
-var fileStart = "res://levels/level_"
+
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		print("res://levels/level_"+nextLvl+".tscn")
+		TransitonScreen.transition()
+		await TransitonScreen.on_transition_finished
 		get_tree().change_scene_to_file("res://levels/level_"+str(nextLvl)+".tscn")

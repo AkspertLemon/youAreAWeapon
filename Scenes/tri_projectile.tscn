@@ -22,9 +22,6 @@ disabled = true
 wait_time = 5.0
 autostart = true
 
-[node name="Grace" type="Timer" parent="."]
-one_shot = true
-
 [node name="Area2D" type="Area2D" parent="." groups=["Projectiles"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
@@ -49,5 +46,4 @@ color = Color(0.862745, 0.0784314, 0.235294, 1)
 color_ramp = SubResource("Gradient_7l4iy")
 
 [connection signal="timeout" from="Life" to="." method="_on_life_timeout"]
-[connection signal="timeout" from="Grace" to="." method="_on_grace_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

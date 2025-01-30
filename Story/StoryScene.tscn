@@ -1,0 +1,547 @@
+[gd_scene load_steps=15 format=3 uid="uid://djdp1iba5112j"]
+
+[ext_resource type="Script" path="res://Story/story.gd" id="1_umffa"]
+[ext_resource type="Texture2D" uid="uid://cgquljdgmxpks" path="res://Assets/City Bg/Sky.png" id="2_kfjde"]
+[ext_resource type="Texture2D" uid="uid://cb258qv2r6ibc" path="res://Assets/City Bg/1.png" id="3_ni853"]
+[ext_resource type="Texture2D" uid="uid://wxv8lpqhd27w" path="res://Story/AlienRays.png" id="4_3axdt"]
+[ext_resource type="Texture2D" uid="uid://b7o84w81e788x" path="res://Assets/City Bg/2.png" id="5_nqa4v"]
+[ext_resource type="Texture2D" uid="uid://d2i75fi1i2iob" path="res://Assets/City Bg/3.png" id="6_0bp7d"]
+[ext_resource type="Texture2D" uid="uid://bpqctfrunwei3" path="res://Assets/City Bg/4.png" id="7_j3svc"]
+[ext_resource type="Script" path="res://Story/camera_2d.gd" id="8_ydi2e"]
+[ext_resource type="Theme" uid="uid://ccijbwjqi8i2p" path="res://Menus/menutheme.tres" id="9_p51ip"]
+[ext_resource type="Texture2D" uid="uid://4cp47ktfhb7o" path="res://Story/alienShip.png" id="10_f4s3g"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_cgvwc"]
+
+[sub_resource type="Animation" id="Animation_fi2gd"]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(200, 400)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Button:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(726, 389)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../AlienShip:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(999, 104)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../BackGround/AlienRays:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../BackGround/AlienRays:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.107089]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../BackGround/AlienRays3:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.589715]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../BackGround/AlienRays2:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.311034]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Label:text")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Hustiling Bustling City"]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../BackGround/AlienRays2/HumanGroup:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 800)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../BackGround/AlienRays2/HumanGroup:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_lpt0q"]
+resource_name = "camera_movement"
+length = 30.0
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6, 7, 8.2, 9.6, 15, 18.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1e+06, 1, 1),
+"update": 0,
+"values": [Vector2(0, 450), Vector2(200, 400), Vector2(400, 398), Vector2(400, 189), Vector2(400, 265), Vector2(286, 411), Vector2(262, 201)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"apply_shake"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:zoom")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 6.6, 8.4, 15),
+"transitions": PackedFloat32Array(1, 1, 1e+06, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(2, 2), Vector2(1.2, 1.2), Vector2(3, 3)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Button:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(6.6, 8.4, 15),
+"transitions": PackedFloat32Array(1.93187, 1e+06, 1),
+"update": 0,
+"values": [Vector2(726, 389), Vector2(988, 537.143), Vector2(599, 318)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../AlienShip:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 6.8, 7.8, 10.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2000, 0), Vector2(2000, 0), Vector2(1044, 126), Vector2(828, 207)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../BackGround/AlienRays:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 8.4, 9.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../BackGround/AlienRays3:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 9, 9.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../BackGround/AlienRays2:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 8.8, 9.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../BackGround/AlienRays:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(8.2, 8.6, 9, 20.4),
+"transitions": PackedFloat32Array(1, 2.2974, 0.450625, 1),
+"update": 0,
+"values": [-0.107089, -0.222305, 0.464048, -0.311034]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../BackGround/AlienRays3:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(8.8, 9.6, 11.6, 16.4),
+"transitions": PackedFloat32Array(1, 1, 0.25, 1),
+"update": 0,
+"values": [-0.589715, -0.686425, 0.719541, 0.0197716]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../BackGround/AlienRays2:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(3.6, 9.2, 17.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.415462, -0.311034, 0.608323]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Label:text")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 4.6, 6.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["Hustiling Bustling City", "", ""]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../BackGround/AlienRays2/HumanGroup:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(15, 18.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 800), Vector2(0, -100)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../BackGround/AlienRays2/HumanGroup:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("../BackGround/AlienRays3/HumanGroup2:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(14, 17.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 800), Vector2(0, -150)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fatt5"]
+_data = {
+"RESET": SubResource("Animation_fi2gd"),
+"camera_movement": SubResource("Animation_lpt0q")
+}
+
+[node name="StoryScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_umffa")
+
+[node name="BackGround" type="Node2D" parent="."]
+
+[node name="Sky2" type="Sprite2D" parent="BackGround"]
+texture_filter = 1
+position = Vector2(-2.15661, 3.42784e-07)
+rotation = -0.00171508
+scale = Vector2(3, 3)
+texture = ExtResource("2_kfjde")
+centered = false
+
+[node name="Buldings1" type="Parallax2D" parent="BackGround"]
+scale = Vector2(1.4, 1.4)
+scroll_scale = Vector2(0.1, 0)
+scroll_offset = Vector2(-544, 399)
+repeat_size = Vector2(576, 0)
+repeat_times = 3
+follow_viewport = false
+
+[node name="1" type="Sprite2D" parent="BackGround/Buldings1"]
+texture_filter = 1
+texture = ExtResource("3_ni853")
+centered = false
+
+[node name="AlienRays" type="Sprite2D" parent="BackGround"]
+self_modulate = Color(1, 1, 1, 0.776471)
+position = Vector2(892, 188)
+rotation = -0.107089
+scale = Vector2(0.647951, 1.08539)
+texture = ExtResource("4_3axdt")
+offset = Vector2(0, 300)
+
+[node name="Buldings2" type="Parallax2D" parent="BackGround"]
+scale = Vector2(1.2, 1.2)
+scroll_scale = Vector2(0.62, 0)
+scroll_offset = Vector2(-424, 478)
+repeat_size = Vector2(576, 0)
+repeat_times = 3
+follow_viewport = false
+
+[node name="2" type="Sprite2D" parent="BackGround/Buldings2"]
+texture_filter = 1
+texture = ExtResource("5_nqa4v")
+centered = false
+
+[node name="AlienRays3" type="Sprite2D" parent="BackGround"]
+self_modulate = Color(1, 1, 1, 0.776471)
+position = Vector2(821, 207)
+rotation = -0.589715
+scale = Vector2(0.647951, 1.29716)
+texture = ExtResource("4_3axdt")
+offset = Vector2(0, 300)
+
+[node name="HumanGroup2" type="Node2D" parent="BackGround/AlienRays3"]
+position = Vector2(0, -150)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="BackGround/AlienRays3/HumanGroup2"]
+modulate = Color(0.176471, 0.639216, 0, 1)
+position = Vector2(-18.2474, 33.9524)
+scale = Vector2(63.561, 30)
+mesh = SubResource("SphereMesh_cgvwc")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="BackGround/AlienRays3/HumanGroup2"]
+modulate = Color(0.176471, 0.639216, 0, 1)
+position = Vector2(28.1973, -20.6258)
+scale = Vector2(63.561, 30)
+mesh = SubResource("SphereMesh_cgvwc")
+
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="BackGround/AlienRays3/HumanGroup2"]
+modulate = Color(0.176471, 0.639216, 0, 1)
+position = Vector2(-3.23107, 168.196)
+scale = Vector2(63.561, 30)
+mesh = SubResource("SphereMesh_cgvwc")
+
+[node name="MeshInstance2D4" type="MeshInstance2D" parent="BackGround/AlienRays3/HumanGroup2"]
+modulate = Color(0.176471, 0.639216, 0, 1)
+position = Vector2(1.98738, -169.862)
+scale = Vector2(63.561, 30)
+mesh = SubResource("SphereMesh_cgvwc")
+
+[node name="Buldings3" type="Parallax2D" parent="BackGround"]
+scale = Vector2(1.1, 1.1)
+scroll_scale = Vector2(1, 0)
+scroll_offset = Vector2(-33, 543)
+repeat_size = Vector2(576, 0)
+repeat_times = 3
+follow_viewport = false
+
+[node name="3" type="Sprite2D" parent="BackGround/Buldings3"]
+texture_filter = 1
+texture = ExtResource("6_0bp7d")
+centered = false
+
+[node name="AlienRays2" type="Sprite2D" parent="BackGround"]
+self_modulate = Color(1, 1, 1, 0.776471)
+position = Vector2(833, 200)
+rotation = -0.311034
+scale = Vector2(0.535123, 1.13218)
+texture = ExtResource("4_3axdt")
+offset = Vector2(0, 300)
+
+[node name="HumanGroup" type="Node2D" parent="BackGround/AlienRays2"]
+visible = false
+position = Vector2(0, 800)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="BackGround/AlienRays2/HumanGroup"]
+modulate = Color(0.176471, 0.639216, 0, 1)
+position = Vector2(-18.2474, 33.9524)
+scale = Vector2(63.561, 30)
+mesh = SubResource("SphereMesh_cgvwc")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="BackGround/AlienRays2/HumanGroup"]
+modulate = Color(0.176471, 0.639216, 0, 1)
+position = Vector2(28.1973, -20.6258)
+scale = Vector2(63.561, 30)
+mesh = SubResource("SphereMesh_cgvwc")
+
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="BackGround/AlienRays2/HumanGroup"]
+modulate = Color(0.176471, 0.639216, 0, 1)
+position = Vector2(-3.23107, 168.196)
+scale = Vector2(63.561, 30)
+mesh = SubResource("SphereMesh_cgvwc")
+
+[node name="MeshInstance2D4" type="MeshInstance2D" parent="BackGround/AlienRays2/HumanGroup"]
+modulate = Color(0.176471, 0.639216, 0, 1)
+position = Vector2(1.98738, -169.862)
+scale = Vector2(63.561, 30)
+mesh = SubResource("SphereMesh_cgvwc")
+
+[node name="Buldings4" type="Parallax2D" parent="BackGround"]
+scroll_scale = Vector2(1.8, 0)
+scroll_offset = Vector2(786, 605)
+repeat_size = Vector2(576, 0)
+repeat_times = 2
+follow_viewport = false
+
+[node name="4" type="Sprite2D" parent="BackGround/Buldings4"]
+texture_filter = 1
+position = Vector2(-2.15661, 3.42784e-07)
+texture = ExtResource("7_j3svc")
+centered = false
+offset = Vector2(500, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(200, 400)
+offset = Vector2(400, 225)
+zoom = Vector2(2, 2)
+script = ExtResource("8_ydi2e")
+
+[node name="Button" type="Button" parent="Camera2D"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 726.0
+offset_top = 389.0
+offset_right = 771.0
+offset_bottom = 439.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("9_p51ip")
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 20
+text = "Skip
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D"]
+libraries = {
+"": SubResource("AnimationLibrary_fatt5")
+}
+
+[node name="Label" type="Label" parent="Camera2D"]
+visible = false
+layout_direction = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 298.0
+offset_top = 401.0
+offset_right = 476.0
+offset_bottom = 435.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("9_p51ip")
+text = "Hustiling Bustling City"
+
+[node name="AlienShip" type="Sprite2D" parent="."]
+z_index = 3
+position = Vector2(999, 104)
+texture = ExtResource("10_f4s3g")
+
+[connection signal="pressed" from="Camera2D/Button" to="." method="_on_button_pressed"]

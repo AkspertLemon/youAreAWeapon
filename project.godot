@@ -22,6 +22,7 @@ config/icon="res://Assets/Alien.png"
 [autoload]
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+TransitonScreen="*res://Scenes/Global/transitonScreen.tscn"
 
 [dialogic]
 

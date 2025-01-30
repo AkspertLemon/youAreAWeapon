@@ -20,9 +20,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		kill()
 
 func kill():
-	queue_free()
-	#$explosion.emitting=true
-	#$Sprite2D.modulate(Color.TRANSPARENT)
-	#$Grace.start()
-func _on_grace_timeout() -> void:
-	queue_free()
+	$explosion.emitting=true
+	var tween = create_tween().bind_node(self)
+	tween.tween_property($Sprite2D,"self_modulate",Color(0,0,0,0),0)
+	tween.parallel().tween_property(self,"scale",Vector2(0.3,0.3),0.2)
+	tween.tween_callback(self.queue_free).set_delay(0.3)
