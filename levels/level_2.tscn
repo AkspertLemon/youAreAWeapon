@@ -264,7 +264,7 @@ texture = ExtResource("6_g3j60")
 
 [node name="Level_Finish" parent="." instance=ExtResource("7_d22cm")]
 position = Vector2(1444, 776)
-next_scn = "res://levels/level_5.tscn"
+nextLvl = "3"
 
 [connection signal="area_entered" from="Mechanism/LevelButton" to="Mechanism" method="_on_level_button_area_entered"]
 [connection signal="body_entered" from="Mechanism/LevelButton" to="Mechanism" method="_on_level_button_body_entered"]

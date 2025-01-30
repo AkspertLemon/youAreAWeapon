@@ -7,14 +7,18 @@ func _ready() -> void:
 	global_rotation=0
 	var tween = create_tween().bind_node(self)
 	tween.tween_property(self,"position",Vector2(1287,632),6)
-	tween.tween_property(self,"rotation_degrees",87,1)
-	tween.tween_property(self,"position",Vector2(922,670),2)
-
+	tween.tween_property(self,"rotation_degrees",90,1)
+	tween.parallel().tween_property(self,"position",Vector2(975,636),2)
+	tween.tween_property(self,"rotation_degrees",125,1)
+	tween.parallel().tween_property(self,"position",Vector2(445,335),4)
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Projectiles"):
-		print("I died!")
+		var tween = create_tween().bind_node(self)
 		$CPUParticles2D.emitting=true
-		
-		#create_tweem
-		create_tween().bind_node(self).tween_callback(self.queue_free)
+		tween.tween_property(self,"self_modulate",Color(0,0,0,0),0.3)
+		tween.parallel().tween_property(self,"scale",Vector2(1.6,1.6),0.3)
+		tween.tween_callback(self.queue_free).set_delay(0.4)
+func kill()->void:
+	#Some evil laugh as the alien eats it
+	pass

@@ -67,4 +67,4 @@ offset = Vector2(800, 450)
 
 [node name="Level_Finish" parent="." instance=ExtResource("4_yry15")]
 position = Vector2(1467, 786)
-next_scn = "res://levels/level_2.tscn"
+nextLvl = "2"

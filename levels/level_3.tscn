@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4f7e7k4ikew3"]
+[gd_scene load_steps=11 format=3 uid="uid://c4f7e7k4ikew3"]
 
 [ext_resource type="Texture2D" uid="uid://d2qmxbcmttw62" path="res://Assets/level_3.png" id="1_xmnw1"]
 [ext_resource type="PackedScene" uid="uid://1045u2o5op2" path="res://Player/bomb_player.tscn" id="2_o2tuq"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bdcjib8mr0drr" path="res://Assets/ProjectileTriangle.png" id="3_itmfd"]
 [ext_resource type="Script" path="res://Scripts/alienLevel3.gd" id="5_7sycd"]
 [ext_resource type="PackedScene" uid="uid://cqyialgd2eca8" path="res://Scenes/stabillizer.tscn" id="5_dous6"]
+[ext_resource type="PackedScene" uid="uid://bvwuk2wv4ig65" path="res://Scenes/level_finish.tscn" id="7_yjuul"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5lxgn"]
 polygon = PackedVector2Array(1076, 282, 1077, 553, 1212, 554, 1212, 37, 1574, 38, 1579, 873, 1226, 876, 1222, 776, 1092, 772, 951, 712, 950, 863, 779, 863, 781, 723, 15, 726, 8, 205, 1073, 281, 1064, 0, -9, 5, 1, 895, 1598, 898, 1598, -13, 1065, -1)
@@ -56,13 +57,13 @@ texture = ExtResource("3_itmfd")
 offset = Vector2(0, -420)
 
 [node name="Alien" type="Sprite2D" parent="."]
-position = Vector2(1698, 625)
-rotation = 0.0337175
+position = Vector2(687, 437)
+rotation = 1.57155
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_3f0v4")
 script = ExtResource("5_7sycd")
 
-[node name="Area2D" type="Area2D" parent="Alien"]
+[node name="Area2D" type="Area2D" parent="Alien" groups=["Projectiles"]]
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Alien/Area2D"]
@@ -129,8 +130,12 @@ position = Vector2(1018, 813)
 sizeIn = 1
 
 [node name="Stabillizer11" parent="Stabillizers" instance=ExtResource("5_dous6")]
-position = Vector2(867, 703)
+position = Vector2(436, 323)
 sizeOut = 150
 sizeIn = 3
+
+[node name="Level_Finish" parent="." instance=ExtResource("7_yjuul")]
+position = Vector2(1384, 127)
+nextLvl = "5"
 
 [connection signal="area_entered" from="Alien/Area2D" to="Alien" method="_on_area_2d_area_entered"]
