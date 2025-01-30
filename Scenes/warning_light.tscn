@@ -11,7 +11,7 @@ color = Color(0.445961, 0.0926406, 0.122665, 1)
 energy = 20.0
 shadow_enabled = true
 texture = ExtResource("1_3abxb")
-offset = Vector2(0, -0.5)
+offset = Vector2(0, -0.52)
 script = ExtResource("2_al136")
 
 [node name="warnTimer" type="Timer" parent="."]

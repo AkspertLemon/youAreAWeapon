@@ -1,11 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://b7w2hvinfjuu3"]
+[gd_scene load_steps=16 format=3 uid="uid://b7w2hvinfjuu3"]
 
 [ext_resource type="Texture2D" uid="uid://dhiajsxh6evnt" path="res://Assets/level_2.png" id="1_loavl"]
 [ext_resource type="PackedScene" uid="uid://1045u2o5op2" path="res://Player/bomb_player.tscn" id="2_8nuy6"]
 [ext_resource type="PackedScene" uid="uid://cqyialgd2eca8" path="res://Scenes/stabillizer.tscn" id="2_hx55c"]
 [ext_resource type="Texture2D" uid="uid://bdcjib8mr0drr" path="res://Assets/ProjectileTriangle.png" id="3_85xrh"]
 [ext_resource type="Script" path="res://Scripts/Level2-mechanism.gd" id="5_0f3c1"]
-[ext_resource type="Texture2D" uid="uid://brj75arq1s1rk" path="res://Assets/Fama_Drawing.bmp" id="6_py5r3"]
+[ext_resource type="Texture2D" uid="uid://twwjvc2n2dja" path="res://Assets/Alien.png" id="6_g3j60"]
+[ext_resource type="PackedScene" uid="uid://bvwuk2wv4ig65" path="res://Scenes/level_finish.tscn" id="7_d22cm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_260t1"]
 size = Vector2(168, 20)
@@ -17,6 +18,8 @@ polygon = PackedVector2Array(33, 898, 37, 26, 766, 29, 1570, 216, 1575, 881, 132
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ea18g"]
 polygon = PackedVector2Array(8.51733, -225.981, -8.48267, -226.02, -8.98169, -8.02054, -225.981, -8.51727, -225.018, 7.48499, -9.02063, 8.97943, -7.51501, 224.983, 7.48267, 226.018, 7.97937, 9.01831, 226.986, 6.51965, 227.018, -7.48032, 8.01831, -7.98163)
+
+[sub_resource type="SphereMesh" id="SphereMesh_0ircp"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_1dles"]
 
@@ -217,6 +220,11 @@ polygon = PackedVector2Array(8.51733, -225.981, -8.48267, -226.02, -8.98169, -8.
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Mechanism/Arms"]
 occluder = SubResource("OccluderPolygon2D_ea18g")
 
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Mechanism/Arms"]
+modulate = Color(0.137255, 0.113725, 0.2, 1)
+scale = Vector2(50, 50)
+mesh = SubResource("SphereMesh_0ircp")
+
 [node name="LevelButton" type="Area2D" parent="Mechanism"]
 position = Vector2(-1328.9, -481.043)
 scale = Vector2(2.18268, 2.18268)
@@ -248,11 +256,15 @@ shape = SubResource("RectangleShape2D_5wwtb")
 wait_time = 2.0
 one_shot = true
 
-[node name="FamaDrawing" type="Sprite2D" parent="."]
+[node name="Alien" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.505882)
 texture_filter = 1
 position = Vector2(400, 747)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("6_py5r3")
+texture = ExtResource("6_g3j60")
+
+[node name="Level_Finish" parent="." instance=ExtResource("7_d22cm")]
+position = Vector2(1444, 776)
+next_scn = "res://levels/level_5.tscn"
 
 [connection signal="area_entered" from="Mechanism/LevelButton" to="Mechanism" method="_on_level_button_area_entered"]
 [connection signal="body_entered" from="Mechanism/LevelButton" to="Mechanism" method="_on_level_button_body_entered"]

@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 	input.y = Input.get_axis("move_w",'move_s')
 	spin = Input.get_axis("rot_q","rot_e")
 	apply_central_force(input*delta*10000)
-	apply_torque(spin*2000)
+	apply_torque(spin*1500)
 	if  not $Clock_ticker.playing && not $Explode_snd.playing:$Clock_ticker.play(0)
 	
 	

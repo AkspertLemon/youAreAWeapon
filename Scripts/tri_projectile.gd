@@ -1,5 +1,5 @@
 extends CharacterBody2D
-var SPEED = 500
+var SPEED = 750
 var dir:float
 var spawnPos:Vector2
 var spawnRot:float

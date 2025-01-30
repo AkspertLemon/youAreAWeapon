@@ -1,3 +1,136 @@
-[gd_scene format=3 uid="uid://c4f7e7k4ikew3"]
+[gd_scene load_steps=10 format=3 uid="uid://c4f7e7k4ikew3"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://d2qmxbcmttw62" path="res://Assets/level_3.png" id="1_xmnw1"]
+[ext_resource type="PackedScene" uid="uid://1045u2o5op2" path="res://Player/bomb_player.tscn" id="2_o2tuq"]
+[ext_resource type="Texture2D" uid="uid://twwjvc2n2dja" path="res://Assets/Alien.png" id="3_3f0v4"]
+[ext_resource type="Texture2D" uid="uid://bdcjib8mr0drr" path="res://Assets/ProjectileTriangle.png" id="3_itmfd"]
+[ext_resource type="Script" path="res://Scripts/alienLevel3.gd" id="5_7sycd"]
+[ext_resource type="PackedScene" uid="uid://cqyialgd2eca8" path="res://Scenes/stabillizer.tscn" id="5_dous6"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5lxgn"]
+polygon = PackedVector2Array(1076, 282, 1077, 553, 1212, 554, 1212, 37, 1574, 38, 1579, 873, 1226, 876, 1222, 776, 1092, 772, 951, 712, 950, 863, 779, 863, 781, 723, 15, 726, 8, 205, 1073, 281, 1064, 0, -9, 5, 1, 895, 1598, 898, 1598, -13, 1065, -1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_88n54"]
+radius = 66.7081
+
+[sub_resource type="Gradient" id="Gradient_fl06h"]
+offsets = PackedFloat32Array(0.222772, 1)
+colors = PackedColorArray(0.996078, 0.211765, 0.145098, 1, 0.996078, 0.211765, 0.145098, 0)
+
+[node name="Level_3" type="Node2D"]
+
+[node name="Level3" type="Sprite2D" parent="."]
+texture = ExtResource("1_xmnw1")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level3"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level3/StaticBody2D"]
+polygon = PackedVector2Array(1076, 282, 1077, 553, 1212, 554, 1212, 37, 1574, 38, 1579, 873, 1226, 876, 1222, 776, 1092, 772, 951, 712, 950, 863, 779, 863, 781, 723, 15, 726, 8, 205, 1073, 281, 1064, 0, -9, 5, 1, 895, 1598, 898, 1598, -13, 1065, -1)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Level3"]
+occluder = SubResource("OccluderPolygon2D_5lxgn")
+
+[node name="BombPlayer" parent="." instance=ExtResource("2_o2tuq")]
+position = Vector2(87, 462)
+projec_num = 3
+
+[node name="Marker1" type="Sprite2D" parent="BombPlayer"]
+self_modulate = Color(1, 1, 1, 0.423529)
+scale = Vector2(0.0982619, 0.0982619)
+texture = ExtResource("3_itmfd")
+offset = Vector2(0, -420)
+
+[node name="Marker2" type="Sprite2D" parent="BombPlayer"]
+self_modulate = Color(1, 1, 1, 0.423529)
+rotation = 2.0944
+scale = Vector2(0.0982619, 0.0982619)
+texture = ExtResource("3_itmfd")
+offset = Vector2(0, -420)
+
+[node name="Marker3" type="Sprite2D" parent="BombPlayer"]
+self_modulate = Color(1, 1, 1, 0.423529)
+rotation = 4.18879
+scale = Vector2(0.0982619, 0.0982619)
+texture = ExtResource("3_itmfd")
+offset = Vector2(0, -420)
+
+[node name="Alien" type="Sprite2D" parent="."]
+position = Vector2(1698, 625)
+rotation = 0.0337175
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_3f0v4")
+script = ExtResource("5_7sycd")
+
+[node name="Area2D" type="Area2D" parent="Alien"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Alien/Area2D"]
+position = Vector2(7, 9)
+shape = SubResource("CircleShape2D_88n54")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Alien"]
+emitting = false
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.9
+emission_shape = 1
+emission_sphere_radius = 40.0
+spread = 180.0
+gravity = Vector2(0, 1000)
+initial_velocity_min = 600.0
+initial_velocity_max = 1000.0
+angular_velocity_min = 200.0
+angular_velocity_max = 200.0
+damping_min = 1.0
+damping_max = 10.0
+scale_amount_min = 20.0
+scale_amount_max = 30.0
+color_ramp = SubResource("Gradient_fl06h")
+
+[node name="Stabillizers" type="Node2D" parent="."]
+
+[node name="Stabillizer" parent="Stabillizers" instance=ExtResource("5_dous6")]
+position = Vector2(267, 123)
+sizeOut = 155
+
+[node name="Stabillizer2" parent="Stabillizers" instance=ExtResource("5_dous6")]
+position = Vector2(454, 136)
+sizeOut = 155
+
+[node name="Stabillizer3" parent="Stabillizers" instance=ExtResource("5_dous6")]
+position = Vector2(650, 139)
+sizeOut = 155
+
+[node name="Stabillizer4" parent="Stabillizers" instance=ExtResource("5_dous6")]
+position = Vector2(844, 154)
+sizeOut = 155
+
+[node name="Stabillizer5" parent="Stabillizers" instance=ExtResource("5_dous6")]
+position = Vector2(1004, 96)
+
+[node name="Stabillizer6" parent="Stabillizers" instance=ExtResource("5_dous6")]
+position = Vector2(1006, 204)
+
+[node name="Stabillizer7" parent="Stabillizers" instance=ExtResource("5_dous6")]
+position = Vector2(279, 796)
+sizeOut = 120
+
+[node name="Stabillizer8" parent="Stabillizers" instance=ExtResource("5_dous6")]
+position = Vector2(477, 796)
+sizeOut = 120
+
+[node name="Stabillizer9" parent="Stabillizers" instance=ExtResource("5_dous6")]
+position = Vector2(674, 798)
+sizeOut = 120
+
+[node name="Stabillizer10" parent="Stabillizers" instance=ExtResource("5_dous6")]
+position = Vector2(1018, 813)
+sizeIn = 1
+
+[node name="Stabillizer11" parent="Stabillizers" instance=ExtResource("5_dous6")]
+position = Vector2(867, 703)
+sizeOut = 150
+sizeIn = 3
+
+[connection signal="area_entered" from="Alien/Area2D" to="Alien" method="_on_area_2d_area_entered"]

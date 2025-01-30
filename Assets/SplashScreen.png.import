@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://duhbdn86etmd3"
-path="res://.godot/imported/SadFace.png-8225e66af32b1b7db2d5a2c869df88be.ctex"
+uid="uid://b4i56a4nyrow5"
+path="res://.godot/imported/SplashScreen.png-5976b92e4ad14a07341ab000568fc9e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SadFace.png"
-dest_files=["res://.godot/imported/SadFace.png-8225e66af32b1b7db2d5a2c869df88be.ctex"]
+source_file="res://Assets/SplashScreen.png"
+dest_files=["res://.godot/imported/SplashScreen.png-5976b92e4ad14a07341ab000568fc9e1.ctex"]
 
 [params]
 
