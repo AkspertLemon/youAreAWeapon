@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://b7w2hvinfjuu3"]
+[gd_scene load_steps=17 format=3 uid="uid://b7w2hvinfjuu3"]
 
 [ext_resource type="Texture2D" uid="uid://dhiajsxh6evnt" path="res://Assets/level_2.png" id="1_loavl"]
 [ext_resource type="PackedScene" uid="uid://1045u2o5op2" path="res://Player/bomb_player.tscn" id="2_8nuy6"]
+[ext_resource type="FontFile" uid="uid://b5wru4hc5msfb" path="res://Menus/Retro Gaming.ttf" id="2_ctf1j"]
 [ext_resource type="PackedScene" uid="uid://cqyialgd2eca8" path="res://Scenes/stabillizer.tscn" id="2_hx55c"]
 [ext_resource type="Texture2D" uid="uid://bdcjib8mr0drr" path="res://Assets/ProjectileTriangle.png" id="3_85xrh"]
 [ext_resource type="Script" path="res://Scripts/Level2-mechanism.gd" id="5_0f3c1"]
@@ -46,6 +47,18 @@ shape = SubResource("RectangleShape2D_260t1")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Level2"]
 occluder = SubResource("OccluderPolygon2D_qflpx")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 502.0
+offset_top = 176.0
+offset_right = 904.0
+offset_bottom = 281.0
+rotation = 0.376477
+theme_override_colors/font_color = Color(0.333333, 0.470588, 0.54902, 1)
+theme_override_fonts/font = ExtResource("2_ctf1j")
+theme_override_font_sizes/font_size = 40
+text = "Q  & E
+<- & -> to rotate"
 
 [node name="Stabillizers" type="Node2D" parent="."]
 
@@ -178,23 +191,6 @@ position = Vector2(1222, 768)
 sizeOut = 110
 sizeIn = 3
 
-[node name="BombPlayer" parent="." instance=ExtResource("2_8nuy6")]
-position = Vector2(118, 813)
-projec_num = 2
-
-[node name="Marker1" type="Sprite2D" parent="BombPlayer"]
-self_modulate = Color(1, 1, 1, 0.423529)
-position = Vector2(0, -40)
-scale = Vector2(0.0982619, 0.0982619)
-texture = ExtResource("3_85xrh")
-
-[node name="Marker2" type="Sprite2D" parent="BombPlayer"]
-self_modulate = Color(1, 1, 1, 0.423529)
-position = Vector2(0, 40)
-rotation = 3.14159
-scale = Vector2(0.0982619, 0.0982619)
-texture = ExtResource("3_85xrh")
-
 [node name="Mechanism" type="Node2D" parent="."]
 position = Vector2(1547, 513)
 rotation = -0.00228909
@@ -265,6 +261,23 @@ texture = ExtResource("6_g3j60")
 [node name="Level_Finish" parent="." instance=ExtResource("7_d22cm")]
 position = Vector2(1444, 776)
 nextLvl = "3"
+
+[node name="BombPlayer" parent="." instance=ExtResource("2_8nuy6")]
+position = Vector2(118, 813)
+projec_num = 2
+
+[node name="Marker1" type="Sprite2D" parent="BombPlayer"]
+self_modulate = Color(1, 1, 1, 0.423529)
+position = Vector2(0, -40)
+scale = Vector2(0.0982619, 0.0982619)
+texture = ExtResource("3_85xrh")
+
+[node name="Marker2" type="Sprite2D" parent="BombPlayer"]
+self_modulate = Color(1, 1, 1, 0.423529)
+position = Vector2(0, 40)
+rotation = 3.14159
+scale = Vector2(0.0982619, 0.0982619)
+texture = ExtResource("3_85xrh")
 
 [connection signal="area_entered" from="Mechanism/LevelButton" to="Mechanism" method="_on_level_button_area_entered"]
 [connection signal="body_entered" from="Mechanism/LevelButton" to="Mechanism" method="_on_level_button_body_entered"]

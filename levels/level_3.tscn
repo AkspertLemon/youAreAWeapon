@@ -32,6 +32,10 @@ polygon = PackedVector2Array(1076, 282, 1077, 553, 1212, 554, 1212, 37, 1574, 38
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Level3"]
 occluder = SubResource("OccluderPolygon2D_5lxgn")
 
+[node name="Level_Finish" parent="." instance=ExtResource("7_yjuul")]
+position = Vector2(1384, 127)
+nextLvl = "4"
+
 [node name="BombPlayer" parent="." instance=ExtResource("2_o2tuq")]
 position = Vector2(87, 462)
 projec_num = 3
@@ -133,9 +137,5 @@ sizeIn = 1
 position = Vector2(436, 323)
 sizeOut = 150
 sizeIn = 3
-
-[node name="Level_Finish" parent="." instance=ExtResource("7_yjuul")]
-position = Vector2(1384, 127)
-nextLvl = "5"
 
 [connection signal="area_entered" from="Alien/Area2D" to="Alien" method="_on_area_2d_area_entered"]

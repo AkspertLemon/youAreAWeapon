@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfdsx5l4bvo1g"]
+[gd_scene load_steps=9 format=3 uid="uid://bfdsx5l4bvo1g"]
 
 [ext_resource type="Texture2D" uid="uid://d2lq2lm50pu8m" path="res://Assets/level_1.png" id="1_0ajeu"]
+[ext_resource type="FontFile" uid="uid://b5wru4hc5msfb" path="res://Menus/Retro Gaming.ttf" id="2_qhui8"]
 [ext_resource type="PackedScene" uid="uid://cqyialgd2eca8" path="res://Scenes/stabillizer.tscn" id="2_upu6e"]
 [ext_resource type="PackedScene" uid="uid://1045u2o5op2" path="res://Player/bomb_player.tscn" id="2_vbeqh"]
 [ext_resource type="Texture2D" uid="uid://bdcjib8mr0drr" path="res://Assets/ProjectileTriangle.png" id="4_gbm73"]
@@ -30,6 +31,17 @@ shape = SubResource("WorldBoundaryShape2D_bnrme")
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Level1"]
 occluder = SubResource("OccluderPolygon2D_hvr8n")
 
+[node name="Label" type="Label" parent="."]
+offset_left = 98.0
+offset_top = 394.0
+offset_right = 476.0
+offset_bottom = 445.0
+rotation = -0.0416896
+theme_override_colors/font_color = Color(0.392586, 0.509021, 0.575005, 1)
+theme_override_fonts/font = ExtResource("2_qhui8")
+theme_override_font_sizes/font_size = 40
+text = "W A S D to move"
+
 [node name="Stabillizer" parent="." instance=ExtResource("2_upu6e")]
 position = Vector2(945, 148)
 sizeOut = 175
@@ -52,6 +64,13 @@ position = Vector2(1008, 772)
 [node name="Stabillizer6" parent="." instance=ExtResource("2_upu6e")]
 position = Vector2(759, 772)
 
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(800, 450)
+
+[node name="Level_Finish" parent="." instance=ExtResource("4_yry15")]
+position = Vector2(1467, 786)
+nextLvl = "2"
+
 [node name="BombPlayer" parent="." instance=ExtResource("2_vbeqh")]
 position = Vector2(93, 803)
 projec_num = 1
@@ -61,10 +80,3 @@ modulate = Color(1, 1, 1, 0.431373)
 position = Vector2(0, -43)
 scale = Vector2(0.0928888, 0.0928888)
 texture = ExtResource("4_gbm73")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2(800, 450)
-
-[node name="Level_Finish" parent="." instance=ExtResource("4_yry15")]
-position = Vector2(1467, 786)
-nextLvl = "2"

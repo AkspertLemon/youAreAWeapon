@@ -1,4 +1,6 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://ccijbwjqi8i2p"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://ccijbwjqi8i2p"]
+
+[ext_resource type="FontFile" uid="uid://b5wru4hc5msfb" path="res://Menus/Retro Gaming.ttf" id="1_71ra1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5b83e"]
 
@@ -68,8 +70,10 @@ expand_margin_bottom = 4.0
 shadow_size = 10
 
 [resource]
+Button/fonts/font = ExtResource("1_71ra1")
 Button/styles/focus = SubResource("StyleBoxEmpty_5b83e")
 Button/styles/hover = SubResource("StyleBoxFlat_d8qf7")
 Button/styles/normal = SubResource("StyleBoxFlat_asnux")
 Button/styles/pressed = SubResource("StyleBoxFlat_j5hwr")
+Label/fonts/font = ExtResource("1_71ra1")
 Label/styles/normal = SubResource("StyleBoxFlat_dlve8")

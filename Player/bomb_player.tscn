@@ -11,10 +11,10 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_wrhp8"]
 radius = 10.3333
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kpp5e"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ioxwa"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_x45kf"]
-material = SubResource("StandardMaterial3D_kpp5e")
+material = SubResource("StandardMaterial3D_ioxwa")
 
 [sub_resource type="BoxMesh" id="BoxMesh_yd78h"]
 
@@ -64,10 +64,12 @@ one_shot = true
 [node name="Clock_ticker" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_e4krs")
 volume_db = -10.0
+bus = &"SFX"
 
 [node name="Explode_snd" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_quxxm")
 volume_db = -10.0
+bus = &"SFX"
 
 [connection signal="timeout" from="bombTimer" to="." method="_on_bomb_timer_timeout"]
 [connection signal="timeout" from="graceTimer" to="." method="explode_timeout"]

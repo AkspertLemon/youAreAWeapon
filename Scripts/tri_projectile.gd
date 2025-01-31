@@ -22,6 +22,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func kill():
 	$explosion.emitting=true
 	var tween = create_tween().bind_node(self)
+	$Area2D.queue_free()
 	tween.tween_property($Sprite2D,"self_modulate",Color(0,0,0,0),0)
 	tween.parallel().tween_property(self,"scale",Vector2(0.3,0.3),0.2)
 	tween.tween_callback(self.queue_free).set_delay(0.3)

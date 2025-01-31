@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbwufojj13gr6"]
+
+[ext_resource type="Texture2D" uid="uid://8u7v4obiik0o" path="res://Assets/level_4.png" id="1_s41c6"]
+[ext_resource type="PackedScene" uid="uid://bvwuk2wv4ig65" path="res://Scenes/level_finish.tscn" id="2_bjij5"]
+[ext_resource type="PackedScene" uid="uid://1045u2o5op2" path="res://Player/bomb_player.tscn" id="3_2lurl"]
+[ext_resource type="Texture2D" uid="uid://bdcjib8mr0drr" path="res://Assets/ProjectileTriangle.png" id="4_4nvor"]
+
+[node name="level_4" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_s41c6")
+centered = false
+
+[node name="Level_Finish" parent="." instance=ExtResource("2_bjij5")]
+position = Vector2(1429, 706)
+scale = Vector2(0.745564, 0.745564)
+nextLvl = "5"
+
+[node name="BombPlayer" parent="." instance=ExtResource("3_2lurl")]
+position = Vector2(202, 663)
+projec_num = 16
+
+[node name="Marker1" type="Sprite2D" parent="BombPlayer"]
+self_modulate = Color(1, 1, 1, 0.423529)
+scale = Vector2(0.0982619, 0.0982619)
+texture = ExtResource("4_4nvor")
+offset = Vector2(0, -420)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b61v8vn8s1ivd"]
+[gd_scene load_steps=12 format=3 uid="uid://b61v8vn8s1ivd"]
 
 [ext_resource type="Texture2D" uid="uid://bmk6re0t07gdv" path="res://Assets/level_5.png" id="1_eipvx"]
 [ext_resource type="Script" path="res://Scripts/level_5.gd" id="1_imllb"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bvwuk2wv4ig65" path="res://Scenes/level_finish.tscn" id="3_0p0at"]
 [ext_resource type="PackedScene" uid="uid://1045u2o5op2" path="res://Player/bomb_player.tscn" id="4_pee18"]
 [ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="5_ds7el"]
+[ext_resource type="Texture2D" uid="uid://bdcjib8mr0drr" path="res://Assets/ProjectileTriangle.png" id="7_jr2am"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_i1ug0"]
 polygon = PackedVector2Array(168, 898, 167.5, 335.5, 572.5, 331, 625.5, 208, 724, 95.5, 872.5, 19.5, 1021.5, 5.5, 1161, 35, 1279.5, 106.5, 1376.5, 211.5, 1429.5, 338.5, 1437, 395.5, 1767.5, 397, 1793.5, 271, 1866.5, 146.5, 2024.5, 33, 2161.5, 9.5, 2306.5, 19.5, 2467.5, 102.5, 2576.5, 244.5, 2612, 384.5, 2837.5, 386, 2838, 316, 3075, 315.5, 3078, 578.5, 2838, 578.5, 2838, 528.5, 2605, 528.5, 2570.5, 624, 2509.5, 720.5, 2396.5, 811, 2226, 868.5, 2029, 836.5, 1890.5, 740.5, 1790.5, 605, 1772, 521, 1433.5, 520.5, 1378, 707, 1229.5, 826, 1105.5, 877, 958.5, 890, 871.5, 868, 736.5, 810.5, 643, 704.5, 586, 608, 557, 462, 278, 460.5, 287, 898.5, 3196.5, 901, 3193, 9, 12, 9, 9, 895)
@@ -63,6 +64,7 @@ sizeIn = 4
 
 [node name="BombPlayer" parent="." instance=ExtResource("4_pee18")]
 position = Vector2(451, 1290)
+projec_num = 3
 
 [node name="Camera2D" type="Camera2D" parent="BombPlayer"]
 limit_left = 0
@@ -72,6 +74,26 @@ limit_bottom = 1800
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("5_ds7el")
+
+[node name="Marker1" type="Sprite2D" parent="BombPlayer"]
+self_modulate = Color(1, 1, 1, 0.423529)
+scale = Vector2(0.0982619, 0.0982619)
+texture = ExtResource("7_jr2am")
+offset = Vector2(0, -420)
+
+[node name="Marker2" type="Sprite2D" parent="BombPlayer"]
+self_modulate = Color(1, 1, 1, 0.423529)
+rotation = 2.0944
+scale = Vector2(0.0982619, 0.0982619)
+texture = ExtResource("7_jr2am")
+offset = Vector2(0, -420)
+
+[node name="Marker3" type="Sprite2D" parent="BombPlayer"]
+self_modulate = Color(1, 1, 1, 0.423529)
+rotation = 4.18879
+scale = Vector2(0.0982619, 0.0982619)
+texture = ExtResource("7_jr2am")
+offset = Vector2(0, -420)
 
 [node name="CamZoomOut" type="Area2D" parent="."]
 position = Vector2(3196, 916)

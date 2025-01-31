@@ -21,7 +21,6 @@ config/icon="res://Assets/Alien.png"
 
 [autoload]
 
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 TransitonScreen="*res://Scenes/Global/transitonScreen.tscn"
 
 [dialogic]
@@ -39,10 +38,6 @@ window/size/viewport_width=1600
 window/size/viewport_height=900
 window/size/mode=1
 window/size/resizable=false
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 
 [global_group]
 
