@@ -63,12 +63,12 @@ one_shot = true
 
 [node name="Clock_ticker" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_e4krs")
-volume_db = -10.0
+volume_db = -25.0
 bus = &"SFX"
 
 [node name="Explode_snd" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_quxxm")
-volume_db = -10.0
+volume_db = -20.0
 bus = &"SFX"
 
 [connection signal="timeout" from="bombTimer" to="." method="_on_bomb_timer_timeout"]

@@ -34,7 +34,7 @@ occluder = SubResource("OccluderPolygon2D_5lxgn")
 
 [node name="Level_Finish" parent="." instance=ExtResource("7_yjuul")]
 position = Vector2(1384, 127)
-nextLvl = "4"
+nextLvl = "5"
 
 [node name="BombPlayer" parent="." instance=ExtResource("2_o2tuq")]
 position = Vector2(87, 462)

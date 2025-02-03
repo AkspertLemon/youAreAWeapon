@@ -22,6 +22,7 @@ config/icon="res://Assets/Alien.png"
 [autoload]
 
 TransitonScreen="*res://Scenes/Global/transitonScreen.tscn"
+BGmusic="*res://Scenes/Global/BGmusic.tscn"
 
 [dialogic]
 

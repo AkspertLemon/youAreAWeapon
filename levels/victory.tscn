@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwaehg0c7e5m7"]
+
+[ext_resource type="Texture2D" uid="uid://cgquljdgmxpks" path="res://Assets/City Bg/Sky.png" id="1_0k3ry"]
+[ext_resource type="Texture2D" uid="uid://dchblvnct5t0m" path="res://Assets/VictoryScreen.png" id="1_05xm4"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sky" type="Sprite2D" parent="."]
+position = Vector2(861, 599)
+scale = Vector2(3.77279, 3.77279)
+texture = ExtResource("1_0k3ry")
+
+[node name="VictoryScreen" type="Sprite2D" parent="."]
+position = Vector2(-3, 115)
+texture = ExtResource("1_05xm4")
+centered = false

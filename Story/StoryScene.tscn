@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://djdp1iba5112j"]
+[gd_scene load_steps=22 format=3 uid="uid://djdp1iba5112j"]
 
 [ext_resource type="Script" path="res://Story/story.gd" id="1_umffa"]
 [ext_resource type="Texture2D" uid="uid://cgquljdgmxpks" path="res://Assets/City Bg/Sky.png" id="2_kfjde"]
@@ -11,6 +11,7 @@
 [ext_resource type="Theme" uid="uid://ccijbwjqi8i2p" path="res://Menus/menutheme.tres" id="9_p51ip"]
 [ext_resource type="Texture2D" uid="uid://4cp47ktfhb7o" path="res://Story/alienShip.png" id="10_f4s3g"]
 [ext_resource type="AudioStream" uid="uid://dvjnf1pa668ov" path="res://Assets/Sounds/cutsceneSounds.mp3" id="11_g1p74"]
+[ext_resource type="PackedScene" uid="uid://c82fp0fjga3uh" path="res://Scenes/Global/BGmusic.tscn" id="12_dvvlc"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_pvg2y"]
 
@@ -506,6 +507,9 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_g1p74")
+volume_db = -10.0
 bus = &"Music"
+
+[node name="levelBG" parent="." instance=ExtResource("12_dvvlc")]
 
 [connection signal="pressed" from="Camera2D/Button" to="." method="_on_button_pressed"]

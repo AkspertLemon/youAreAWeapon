@@ -1,0 +1,282 @@
+[gd_scene load_steps=23 format=3 uid="uid://bypqjl0hi65xc"]
+
+[ext_resource type="Texture2D" uid="uid://c77xogvfd6glb" path="res://Assets/level_6.png" id="1_12ovs"]
+[ext_resource type="Script" path="res://Scripts/level_6.gd" id="1_mqp4t"]
+[ext_resource type="PackedScene" uid="uid://1045u2o5op2" path="res://Player/bomb_player.tscn" id="2_cayg7"]
+[ext_resource type="Script" path="res://Scripts/Level2-mechanism.gd" id="3_syiox"]
+[ext_resource type="Texture2D" uid="uid://dxbskeihoxjyw" path="res://Assets/CicuitGreen.png" id="6_8twce"]
+[ext_resource type="Script" path="res://Scripts/core_circuits.gd" id="6_ex7f8"]
+[ext_resource type="Texture2D" uid="uid://twwjvc2n2dja" path="res://Assets/Alien.png" id="6_fwvlf"]
+[ext_resource type="Texture2D" uid="uid://cayuiiwwbwwns" path="res://Assets/CicuitRed.png" id="7_3we7e"]
+[ext_resource type="Script" path="res://Scripts/circuit.gd" id="9_3j2k8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ssio"]
+size = Vector2(305.625, 13)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_eb6jc"]
+polygon = PackedVector2Array(57, 303, 44, 1763, 750, 1771, 746, 1330, 366, 1318, 373, 907, 605, 902, 719, 1169, 986, 1373, 1242, 1465, 1673, 1496, 2044, 1420, 2324, 1245, 2520, 989, 2522, 740, 2439, 531, 2244, 347, 1981, 221, 1662, 163, 1251, 194, 917, 331, 699, 526, 605, 751, 363, 756, 360, 103, 2685, 77, 2722, 1769, -106, 1834, -34, 310)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hxwqw"]
+size = Vector2(10.3254, 1.0976)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c6le5"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_rulhb"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_rj747"]
+polygon = PackedVector2Array(-1.31195, -7.9841, -0.0182495, 7.98077, -223.487, 8.7999, -224.781, -7.16501)
+
+[sub_resource type="BoxMesh" id="BoxMesh_utoqq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1314n"]
+size = Vector2(1.36147, 1.21995)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8gxd"]
+size = Vector2(38.8625, 4.93412)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0rd5w"]
+size = Vector2(58, 153)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qgexs"]
+radius = 39.0128
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n5x7q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_8twce")
+}],
+"loop": true,
+"name": &"Green",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_3we7e")
+}],
+"loop": false,
+"name": &"Red",
+"speed": 0.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kcol5"]
+size = Vector2(94, 46)
+
+[node name="Level6" type="Node2D"]
+script = ExtResource("1_mqp4t")
+
+[node name="Level6" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_12ovs")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level6"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level6/StaticBody2D"]
+polygon = PackedVector2Array(57, 303, 44, 1763, 750, 1771, 746, 1330, 366, 1318, 373, 907, 605, 902, 719, 1169, 986, 1373, 1242, 1465, 1673, 1496, 2044, 1420, 2324, 1245, 2520, 989, 2522, 740, 2439, 531, 2244, 347, 1981, 221, 1662, 163, 1251, 194, 917, 331, 699, 526, 605, 751, 363, 756, 360, 103, 2685, 77, 2722, 1769, -106, 1834, -34, 310)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level6/StaticBody2D"]
+position = Vector2(206.813, 311)
+shape = SubResource("RectangleShape2D_8ssio")
+debug_color = Color(0.853227, 0.0399179, 0.881662, 0.42)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Level6/StaticBody2D"]
+position = Vector2(65, 399)
+shape = SubResource("RectangleShape2D_8ssio")
+debug_color = Color(0.853227, 0.0399179, 0.881662, 0.42)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Level6"]
+occluder = SubResource("OccluderPolygon2D_eb6jc")
+
+[node name="BombPlayer" parent="." instance=ExtResource("2_cayg7")]
+position = Vector2(583, 1537)
+projec_num = 6
+
+[node name="Camera2D" type="Camera2D" parent="BombPlayer"]
+zoom = Vector2(1.6, 1.6)
+limit_left = 0
+limit_top = 0
+limit_right = 3200
+limit_bottom = 1800
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+
+[node name="Mechanism" type="Node2D" parent="."]
+position = Vector2(1547, 513)
+rotation = -0.00228909
+script = ExtResource("3_syiox")
+
+[node name="Arms" type="StaticBody2D" parent="Mechanism"]
+position = Vector2(-1170.53, 232.321)
+rotation = -1.57079
+scale = Vector2(0.75179, 0.75179)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mechanism/Arms"]
+position = Vector2(-113.048, 3.05176e-05)
+scale = Vector2(22.42, 16.9634)
+shape = SubResource("RectangleShape2D_hxwqw")
+
+[node name="Arm" type="MeshInstance2D" parent="Mechanism/Arms"]
+self_modulate = Color(0.340753, 0.288966, 0.49986, 1)
+position = Vector2(-113.145, 0)
+scale = Vector2(224.2, 16.9634)
+mesh = SubResource("BoxMesh_c6le5")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Mechanism/Arms"]
+modulate = Color(0.137255, 0.113725, 0.2, 1)
+scale = Vector2(50, 50)
+mesh = SubResource("SphereMesh_rulhb")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Mechanism/Arms"]
+occluder = SubResource("OccluderPolygon2D_rj747")
+
+[node name="LevelButton" type="Area2D" parent="Mechanism"]
+position = Vector2(-1481.63, -161.392)
+rotation = -1.57079
+scale = Vector2(1.34632, 1.39592)
+
+[node name="ButtonClr" type="MeshInstance2D" parent="Mechanism/LevelButton"]
+modulate = Color(0.301961, 0.701961, 0.313726, 1)
+position = Vector2(-0.0175883, 7.71515)
+scale = Vector2(39.0347, 9.04584)
+mesh = SubResource("BoxMesh_utoqq")
+
+[node name="Base" type="MeshInstance2D" parent="Mechanism/LevelButton"]
+modulate = Color(0.362829, 0.362829, 0.362829, 1)
+scale = Vector2(52.9293, 8.61021)
+mesh = SubResource("BoxMesh_utoqq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Mechanism/LevelButton/Base"]
+position = Vector2(-0.000332117, 0.896047)
+scale = Vector2(0.737487, 1.05059)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mechanism/LevelButton/Base/StaticBody2D"]
+position = Vector2(0.000355959, -0.751611)
+shape = SubResource("RectangleShape2D_1314n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mechanism/LevelButton"]
+position = Vector2(-0.0230886, 9.62108)
+shape = SubResource("RectangleShape2D_t8gxd")
+
+[node name="button_cooldown" type="Timer" parent="Mechanism"]
+wait_time = 2.0
+one_shot = true
+
+[node name="CameraZoom" type="Area2D" parent="."]
+position = Vector2(592, 821)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraZoom"]
+position = Vector2(-19, 9.5)
+shape = SubResource("RectangleShape2D_0rd5w")
+debug_color = Color(0.25098, 0.627451, 0.301961, 0.176471)
+
+[node name="EnemyButton" type="Area2D" parent="."]
+position = Vector2(282, 411)
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemyButton"]
+scale = Vector2(0.591837, 0.591837)
+texture = ExtResource("6_fwvlf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyButton"]
+position = Vector2(4, 6)
+shape = SubResource("CircleShape2D_qgexs")
+debug_color = Color(0.714027, 0.103677, 0.169706, 0.42)
+
+[node name="CoreCircuits" type="Node2D" parent="."]
+position = Vector2(1545, 809)
+script = ExtResource("6_ex7f8")
+
+[node name="Circuit" type="AnimatedSprite2D" parent="CoreCircuits"]
+position = Vector2(35, 656)
+sprite_frames = SubResource("SpriteFrames_n5x7q")
+animation = &"Green"
+script = ExtResource("9_3j2k8")
+
+[node name="CircuitArea" type="Area2D" parent="CoreCircuits/Circuit"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoreCircuits/Circuit/CircuitArea"]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_kcol5")
+
+[node name="Circuit2" type="AnimatedSprite2D" parent="CoreCircuits"]
+position = Vector2(32, -623)
+sprite_frames = SubResource("SpriteFrames_n5x7q")
+animation = &"Green"
+script = ExtResource("9_3j2k8")
+
+[node name="CircuitArea" type="Area2D" parent="CoreCircuits/Circuit2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoreCircuits/Circuit2/CircuitArea"]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_kcol5")
+
+[node name="Circuit3" type="AnimatedSprite2D" parent="CoreCircuits"]
+position = Vector2(681, -431)
+rotation = 0.748863
+sprite_frames = SubResource("SpriteFrames_n5x7q")
+animation = &"Green"
+script = ExtResource("9_3j2k8")
+
+[node name="CircuitArea" type="Area2D" parent="CoreCircuits/Circuit3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoreCircuits/Circuit3/CircuitArea"]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_kcol5")
+
+[node name="Circuit4" type="AnimatedSprite2D" parent="CoreCircuits"]
+position = Vector2(688, 477)
+rotation = 2.59259
+sprite_frames = SubResource("SpriteFrames_n5x7q")
+animation = &"Green"
+script = ExtResource("9_3j2k8")
+
+[node name="CircuitArea" type="Area2D" parent="CoreCircuits/Circuit4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoreCircuits/Circuit4/CircuitArea"]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_kcol5")
+
+[node name="Circuit5" type="AnimatedSprite2D" parent="CoreCircuits"]
+position = Vector2(-594, 504)
+rotation = 3.70843
+sprite_frames = SubResource("SpriteFrames_n5x7q")
+animation = &"Green"
+script = ExtResource("9_3j2k8")
+
+[node name="CircuitArea" type="Area2D" parent="CoreCircuits/Circuit5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoreCircuits/Circuit5/CircuitArea"]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_kcol5")
+
+[node name="Circuit6" type="AnimatedSprite2D" parent="CoreCircuits"]
+position = Vector2(-580, -482)
+rotation = 2.6045
+sprite_frames = SubResource("SpriteFrames_n5x7q")
+animation = &"Green"
+script = ExtResource("9_3j2k8")
+
+[node name="CircuitArea" type="Area2D" parent="CoreCircuits/Circuit6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoreCircuits/Circuit6/CircuitArea"]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_kcol5")
+
+[connection signal="area_entered" from="Mechanism/LevelButton" to="Mechanism" method="_on_level_button_area_entered"]
+[connection signal="body_entered" from="Mechanism/LevelButton" to="Mechanism" method="_on_level_button_body_entered"]
+[connection signal="timeout" from="Mechanism/button_cooldown" to="Mechanism" method="_on_button_cooldown_timeout"]
+[connection signal="body_entered" from="CameraZoom" to="." method="_on_camera_zoom_body_entered"]
+[connection signal="area_entered" from="EnemyButton" to="." method="_on_enemy_button_area_entered"]
+[connection signal="body_entered" from="EnemyButton" to="." method="_on_enemy_button_body_entered"]
+[connection signal="animation_changed" from="CoreCircuits/Circuit" to="CoreCircuits" method="_on_circuit_animation_changed"]
+[connection signal="area_entered" from="CoreCircuits/Circuit/CircuitArea" to="CoreCircuits/Circuit" method="_on_circuit_area_entered"]
+[connection signal="animation_changed" from="CoreCircuits/Circuit2" to="CoreCircuits" method="_on_circuit_animation_changed"]
+[connection signal="area_entered" from="CoreCircuits/Circuit2/CircuitArea" to="CoreCircuits/Circuit2" method="_on_circuit_area_entered"]
+[connection signal="animation_changed" from="CoreCircuits/Circuit3" to="CoreCircuits" method="_on_circuit_animation_changed"]
+[connection signal="area_entered" from="CoreCircuits/Circuit3/CircuitArea" to="CoreCircuits/Circuit3" method="_on_circuit_area_entered"]
+[connection signal="animation_changed" from="CoreCircuits/Circuit4" to="CoreCircuits" method="_on_circuit_animation_changed"]
+[connection signal="area_entered" from="CoreCircuits/Circuit4/CircuitArea" to="CoreCircuits/Circuit4" method="_on_circuit_area_entered"]
+[connection signal="animation_changed" from="CoreCircuits/Circuit5" to="CoreCircuits" method="_on_circuit_animation_changed"]
+[connection signal="area_entered" from="CoreCircuits/Circuit5/CircuitArea" to="CoreCircuits/Circuit5" method="_on_circuit_area_entered"]
+[connection signal="animation_changed" from="CoreCircuits/Circuit6" to="CoreCircuits" method="_on_circuit_animation_changed"]
+[connection signal="area_entered" from="CoreCircuits/Circuit6/CircuitArea" to="CoreCircuits/Circuit6" method="_on_circuit_area_entered"]

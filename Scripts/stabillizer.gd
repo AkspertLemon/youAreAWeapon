@@ -36,7 +36,9 @@ func _on_area_entered(area: Area2D) -> void:
 		$CollisionShape2D.queue_free()
 		$ExplosionParticles.restart()
 		$Feild.create_tween().tween_property($Feild,"self_modulate",Color(0,0,0,0),$life.wait_time)
-
+		TransitonScreen.transition()
 
 func _on_life_timeout() -> void:
+	#await TransitonScreen.on_transition_finished
+	get_tree().reload_current_scene()
 	queue_free()

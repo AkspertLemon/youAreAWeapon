@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c82fp0fjga3uh"]
+
+[ext_resource type="Script" path="res://Scenes/Global/BGmusic.gd" id="2_xt6ox"]
+
+[node name="levelBG" type="AudioStreamPlayer"]
+volume_db = -20.0
+bus = &"Music"
+script = ExtResource("2_xt6ox")

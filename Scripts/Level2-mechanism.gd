@@ -11,9 +11,9 @@ func button_pressed()->void:
 
 
 func _on_level_button_body_entered(body: Node2D) -> void:
-	button_pressed()
+	if body.is_in_group("Player"):button_pressed()
 func _on_level_button_area_entered(area: Area2D) -> void:
-	button_pressed()
+	if area.is_in_group("Projectiles"):button_pressed()
 
 
 func _on_button_cooldown_timeout() -> void:

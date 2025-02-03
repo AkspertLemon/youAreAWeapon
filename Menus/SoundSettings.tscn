@@ -1,0 +1,105 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpau6h2t6oq4r"]
+
+[ext_resource type="FontFile" uid="uid://bxabm88vyuvku" path="res://Menus/batmfa__.ttf" id="1_w4kfi"]
+[ext_resource type="FontFile" uid="uid://b5wru4hc5msfb" path="res://Menus/Retro Gaming.ttf" id="2_fe45w"]
+
+[node name="SoundSettings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1604.0
+offset_bottom = 910.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(3.36915e-07, 0.239453, 0.240017, 1)
+
+[node name="Label" type="Label" parent="Control/ColorRect"]
+layout_mode = 0
+offset_left = 415.0
+offset_top = 80.0
+offset_right = 1244.0
+offset_bottom = 155.0
+theme_override_fonts/font = ExtResource("1_w4kfi")
+theme_override_font_sizes/font_size = 75
+text = "Sound Settings"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ColorRect"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 0
+offset_left = 411.0
+offset_top = 206.0
+offset_right = 451.0
+offset_bottom = 246.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="Control/ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fe45w")
+theme_override_font_sizes/font_size = 40
+text = "Master"
+
+[node name="HSlider" type="HSlider" parent="Control/ColorRect/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 132
+
+[node name="Label" type="Label" parent="Control/ColorRect/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fe45w")
+theme_override_font_sizes/font_size = 40
+text = "SFX"
+
+[node name="HSlider" type="HSlider" parent="Control/ColorRect/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(900, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 90
+
+[node name="Label" type="Label" parent="Control/ColorRect/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fe45w")
+theme_override_font_sizes/font_size = 40
+text = "Music"
+
+[node name="HSlider" type="HSlider" parent="Control/ColorRect/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b61v8vn8s1ivd"]
+[gd_scene load_steps=13 format=3 uid="uid://b61v8vn8s1ivd"]
 
 [ext_resource type="Texture2D" uid="uid://bmk6re0t07gdv" path="res://Assets/level_5.png" id="1_eipvx"]
 [ext_resource type="Script" path="res://Scripts/level_5.gd" id="1_imllb"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://1045u2o5op2" path="res://Player/bomb_player.tscn" id="4_pee18"]
 [ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="5_ds7el"]
 [ext_resource type="Texture2D" uid="uid://bdcjib8mr0drr" path="res://Assets/ProjectileTriangle.png" id="7_jr2am"]
+[ext_resource type="PackedScene" uid="uid://dpau6h2t6oq4r" path="res://Menus/SoundSettings.tscn" id="8_qxro8"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_i1ug0"]
 polygon = PackedVector2Array(168, 898, 167.5, 335.5, 572.5, 331, 625.5, 208, 724, 95.5, 872.5, 19.5, 1021.5, 5.5, 1161, 35, 1279.5, 106.5, 1376.5, 211.5, 1429.5, 338.5, 1437, 395.5, 1767.5, 397, 1793.5, 271, 1866.5, 146.5, 2024.5, 33, 2161.5, 9.5, 2306.5, 19.5, 2467.5, 102.5, 2576.5, 244.5, 2612, 384.5, 2837.5, 386, 2838, 316, 3075, 315.5, 3078, 578.5, 2838, 578.5, 2838, 528.5, 2605, 528.5, 2570.5, 624, 2509.5, 720.5, 2396.5, 811, 2226, 868.5, 2029, 836.5, 1890.5, 740.5, 1790.5, 605, 1772, 521, 1433.5, 520.5, 1378, 707, 1229.5, 826, 1105.5, 877, 958.5, 890, 871.5, 868, 736.5, 810.5, 643, 704.5, 586, 608, 557, 462, 278, 460.5, 287, 898.5, 3196.5, 901, 3193, 9, 12, 9, 9, 895)
@@ -38,7 +39,7 @@ occluder = SubResource("OccluderPolygon2D_i1ug0")
 
 [node name="Level_Finish" parent="." instance=ExtResource("3_0p0at")]
 position = Vector2(6069, 916)
-nextLvl = "1"
+nextLvl = "6"
 
 [node name="Motor1" type="Node2D" parent="."]
 position = Vector2(1980, 878)
@@ -70,7 +71,7 @@ projec_num = 3
 limit_left = 0
 limit_top = 0
 limit_right = 6400
-limit_bottom = 1800
+limit_bottom = 2200
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("5_ds7el")
@@ -147,6 +148,12 @@ modulate = Color(0.145098, 0.0862745, 0.537255, 0.423529)
 position = Vector2(0.125, 3.49998)
 scale = Vector2(22.0002, 281)
 mesh = SubResource("BoxMesh_jfrxy")
+
+[node name="SoundSettings" parent="." instance=ExtResource("8_qxro8")]
+offset_left = -16.0
+offset_top = 1782.0
+offset_right = -16.0
+offset_bottom = 1782.0
 
 [connection signal="body_entered" from="CamZoomOut" to="." method="_on_cam_zoom_out_body_entered"]
 [connection signal="body_exited" from="CamZoomOut" to="." method="_on_cam_zoom_out_body_exited"]
